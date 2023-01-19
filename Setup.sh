@@ -62,7 +62,7 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-read -p "Specify username for which to configure your OS? (username) " _user;
+read "Specify username for which to configure your OS? (username) " _user;
 
 echo ""
 echo "################################################################"
@@ -90,7 +90,7 @@ echo ""
 echo "Currently there are a couple of supported Desktop Environments:"
 echo "  - gnome -> Full GNOME environment"
 
-read -p "Which one: " _desktopEnv;
+read "Which one: " _desktopEnv;
 
 if [ "$_desktopEnv" = "gnome" ]
 then
@@ -117,7 +117,7 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-read -p "Install core tools (nano, htop, neofetch)? (yes/no): " _shouldInstallCoreTools;
+read "Install core tools (nano, htop, neofetch)? (yes/no): " _shouldInstallCoreTools;
 
 if [ "$_shouldInstallCoreTools" = "yes" ]
 then
@@ -134,21 +134,21 @@ then
     fi
 fi
 
-read -p "Install terminal, file manager, baobab (disk usage scanner) (GNOME)? (yes/no): " _shouldInstallGnomeCoreTools;
+read "Install terminal, file manager, baobab (disk usage scanner) (GNOME)? (yes/no): " _shouldInstallGnomeCoreTools;
 
 if [ "$_shouldInstallGnomeCoreTools" = "yes" ]
 then
     pkg_add gnome-terminal nautilus baobab
 fi
 
-read -p "Install common tools (flameshot, dconf-editor, inkscape, Virtual Machine Manager (virt-manager))? (yes/no): " _shouldInstallCommonTools;
+read "Install common tools (flameshot, dconf-editor, inkscape, Virtual Machine Manager (virt-manager))? (yes/no): " _shouldInstallCommonTools;
 
 if [ "$_shouldInstallCommonTools" = "yes" ]
 then
     pkg_add flameshot dconf-editor inkscape virt-manager
 fi
 
-read -p "Install Web Browser (firefox/chromium)? (empty for none): " _webBrowser;
+read "Install Web Browser (firefox/chromium)? (empty for none): " _webBrowser;
 
 if [ "$_webBrowser" != "" ]
 then
