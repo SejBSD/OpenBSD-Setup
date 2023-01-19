@@ -62,7 +62,8 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-read "Specify username for which to configure your OS? (username) " _user;
+echo "Specify username for which to configure your OS? (username)"
+read _user;
 
 echo ""
 echo "################################################################"
@@ -90,7 +91,8 @@ echo ""
 echo "Currently there are a couple of supported Desktop Environments:"
 echo "  - gnome -> Full GNOME environment"
 
-read "Which one: " _desktopEnv;
+echo "Which one: "
+read _desktopEnv;
 
 if [ "$_desktopEnv" = "gnome" ]
 then
@@ -117,7 +119,8 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-read "Install core tools (nano, htop, neofetch)? (yes/no): " _shouldInstallCoreTools;
+echo "Install core tools (nano, htop, neofetch)? (yes/no): "
+read _shouldInstallCoreTools;
 
 if [ "$_shouldInstallCoreTools" = "yes" ]
 then
@@ -134,21 +137,24 @@ then
     fi
 fi
 
-read "Install terminal, file manager, baobab (disk usage scanner) (GNOME)? (yes/no): " _shouldInstallGnomeCoreTools;
+echo "Install terminal, file manager, baobab (disk usage scanner) (GNOME)? (yes/no)"
+read _shouldInstallGnomeCoreTools;
 
 if [ "$_shouldInstallGnomeCoreTools" = "yes" ]
 then
     pkg_add gnome-terminal nautilus baobab
 fi
 
-read "Install common tools (flameshot, dconf-editor, inkscape, Virtual Machine Manager (virt-manager))? (yes/no): " _shouldInstallCommonTools;
+echo "Install common tools (flameshot, dconf-editor, inkscape, Virtual Machine Manager (virt-manager))? (yes/no)"
+read _shouldInstallCommonTools;
 
 if [ "$_shouldInstallCommonTools" = "yes" ]
 then
     pkg_add flameshot dconf-editor inkscape virt-manager
 fi
 
-read "Install Web Browser (firefox/chromium)? (empty for none): " _webBrowser;
+echo "Install Web Browser (firefox/chromium)? (empty for none)"
+read _webBrowser;
 
 if [ "$_webBrowser" != "" ]
 then
