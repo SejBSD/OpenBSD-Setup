@@ -15,4 +15,4 @@ echo ""
 # pkg_add $_ide
 
 echo ""
-read -p "## Choose language (java, rust, cpp, python, dotnet-mono, lua): " _language;
+read "## Choose language (java, rust, cpp, python, dotnet-mono, lua): " _language;
