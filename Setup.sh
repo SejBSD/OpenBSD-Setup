@@ -147,12 +147,12 @@ then
     pkg_add gnome-terminal nautilus baobab
 fi
 
-echo "Install common tools (flameshot, dconf-editor, inkscape, Virtual Machine Manager (virt-manager))? (yes/no)"
+echo "Install common tools (flameshot, dconf-editor, inkscape, Virtual Machine Manager (virt-manager), QEMU)? (yes/no)"
 read _shouldInstallCommonTools;
 
 if [ "$_shouldInstallCommonTools" = "yes" ]
 then
-    pkg_add flameshot dconf-editor inkscape virt-manager
+    pkg_add flameshot dconf-editor inkscape virt-manager qemu
 fi
 
 echo "Install Web Browser (firefox/chromium)? (empty for none)"
