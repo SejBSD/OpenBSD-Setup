@@ -15,5 +15,15 @@ echo ""
 # pkg_add $_ide
 
 echo ""
-echo "## Choose language (java, rust, cpp, python, dotnet-mono, lua): "
+echo "## Choose language (python, java, rust, cpp, dotnet-mono, lua): "
 read _language;
+
+if [ "$_language" = "python" ]
+then
+  pkg_add pycharm py-pip python
+fi
+
+if [ "$_language" = "java" ]
+then
+  pkg_add intellij
+fi
