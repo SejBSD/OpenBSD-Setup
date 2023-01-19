@@ -25,5 +25,5 @@ fi
 
 if [ "$_language" = "java" ]
 then
-  pkg_add intellij
+  pkg_add intellij jdk
 fi
