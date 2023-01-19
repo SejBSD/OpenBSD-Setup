@@ -94,6 +94,8 @@ echo "  - gnome -> Full GNOME environment"
 echo "Which one: "
 read _desktopEnv;
 
+pkg_add $_desktopEnv
+
 if [ "$_desktopEnv" = "gnome" ]
 then
     echo "# Added by OpenBSD-Setup script" >> _etcLoginConfPath
