@@ -27,3 +27,8 @@ if [ "$_language" = "java" ]
 then
   pkg_add intellij jdk
 fi
+
+if [ "$_language" = "rust" ]
+then
+  pkg_add rust
+fi
