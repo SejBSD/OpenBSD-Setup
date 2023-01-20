@@ -32,3 +32,8 @@ if [ "$_language" = "rust" ]
 then
   pkg_add rust
 fi
+
+if [ "$_language" = "cpp" ]
+then
+  pkg_add qtcreator qt5 qt6 cmake
+fi
