@@ -25,7 +25,7 @@ fi
 
 if [ "$_language" = "java" ]
 then
-  pkg_add intellij jdk
+  pkg_add intellij jdk jd-gui
 fi
 
 if [ "$_language" = "rust" ]
