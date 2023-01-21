@@ -83,3 +83,19 @@ if [ "$_language" = "avr" ]
 then
   pkg_add avrdude simulavr 
 fi
+
+echo "Install SDL2? (yes/no)"
+read _installSdlTwo;
+
+if [ "$_installSdlTwo" = "yes" ]
+then
+  pkg_add sdl2 sdl2-ttf sdl2-net sdl2-mixer sdl2-image sdl2-gfx
+fi
+
+echo "Install SDL1? (yes/no)"
+read _installSdlOne;
+
+if [ "$_installSdlOne" = "yes" ]
+then
+  pkg_add sdl sdl-ttf sdl-sound sdl-pango sdl-net sdl-mixer sdl-image sdl-gfx
+fi
