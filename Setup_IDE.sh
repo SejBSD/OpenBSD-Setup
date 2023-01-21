@@ -23,7 +23,7 @@ fi
 
 if [ "$_language" = "python" ]
 then
-  pkg_add pycharm py3-pip python bpython
+  pkg_add pycharm py-pip python bpython
 fi
 
 if [ "$_language" = "java" ]
