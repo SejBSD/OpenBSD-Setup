@@ -112,7 +112,7 @@ then
     rcctl disable xenodm
     rcctl enable multicast messagebus avahi_daemon gdm
     
-    pkg_add gedit gnome-terminal nautilus baobab
+    pkg_add gedit gnome-terminal nautilus baobab deja-dup
 fi
 
 echo ""
@@ -123,12 +123,12 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-echo "Install core tools (nano, htop, neofetch)? (yes/no): "
+echo "Install core tools (nano, htop, neofetch, usbutils)? (yes/no): "
 read _shouldInstallCoreTools;
 
 if [ "$_shouldInstallCoreTools" = "yes" ]
 then
-    pkg_add nano htop neofetch
+    pkg_add nano htop neofetch usbutils
 
     if [ "$_user" != "" ]
     then
@@ -163,4 +163,44 @@ read _appManager;
 if [ "$_appManager" = "yes" ]
 then
     pkg_add appmanager
+fi
+
+echo "Configure Cloud Tools (AWS, Kubernetes, GCloud, etc.)? (yes/no)"
+read _cloudTools;
+
+if [ "$_cloudTools" = "yes" ]
+then
+    pkg_add awscli cloud-agent google-cloud-sdk
+fi
+
+echo "Configure FUSE/FS? (yes/no)"
+read _fuse;
+
+if [ "$_fuse" = "yes" ]
+then
+    pkg_add curlftpfs dosfstools e2fsprogs exfat-fuse mtools ntfs-3g squashfs-tools sshfs-fuse
+fi
+
+echo "Configure Converters? (yes/no)"
+read _conv;
+
+if [ "$_conv" = "yes" ]
+then
+    pkg_add bchunk
+fi
+
+echo "Configure Reverse Engineering Tools? (yes/no)"
+read _revEng;
+
+if [ "$_revEng" = "yes" ]
+then
+    pkg_add rizin binwalk
+fi
+
+echo "Configure Containers? (yes/no)"
+read _containers;
+
+if [ "$_containers" = "yes" ]
+then
+    pkg_add docker-cli kubectl oc serf terraform
 fi
