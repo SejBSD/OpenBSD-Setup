@@ -156,3 +156,11 @@ if [ "$_webBrowser" != "" ]
 then
     pkg_add $_webBrowser
 fi
+
+echo "Install AppManager - graphical interface for the OpenBSD package manager? (yes/no)"
+read _appManager;
+
+if [ "$_appManager" = "yes" ]
+then
+    pkg_add appmanager
+fi
