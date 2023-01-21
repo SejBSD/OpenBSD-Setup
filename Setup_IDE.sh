@@ -43,7 +43,7 @@ fi
 
 if [ "$_language" = "cpp" ]
 then
-  pkg_add qt5 qt6 cmake ninja meson llvm
+  pkg_add qt5 qt6 cmake ninja meson llvm samurai
   
   echo "Install GCC? (yes/no)"
   read _installGcc;
@@ -53,7 +53,7 @@ then
     pkg_add gcc gdb
   fi
   
-  echo "Choose IDE (qtcreator, codeblocks)"
+  echo "Choose IDE (qt-creator, codeblocks)"
   read _cppIde;
   
   pkg_add $_cppIde
