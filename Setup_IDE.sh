@@ -11,7 +11,7 @@ echo "################################################################"
 echo ""
 
 echo ""
-echo "## Choose language (shell, python, java, rust, cpp, dotnet-mono, lua, asm, web):"
+echo "## Choose language (shell, python, java, rust, cpp, dotnet-mono, lua, asm, web, avr):"
 read _language;
 
 pkg_add git-lfs git-cvs
@@ -77,4 +77,9 @@ fi
 if [ "$_language" = "web" ]
 then
   pkg_add yarn node 
+fi
+
+if [ "$_language" = "avr" ]
+then
+  pkg_add avrdude simulavr 
 fi
