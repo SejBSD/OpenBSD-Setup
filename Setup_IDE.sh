@@ -14,7 +14,7 @@ echo ""
 echo "## Choose language (shell, python, java, rust, cpp, dotnet-mono, lua, asm, web, avr, gameboy):"
 read _language;
 
-pkg_add git-lfs git-cvs rizin
+pkg_add git-lfs git-cvs git-sync
 
 if [ "$_language" = "shell" ]
 then
