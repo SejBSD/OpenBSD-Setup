@@ -10,13 +10,11 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-# read -p "Choose IDE (pycharm, qt-creator, kdevelop, emacs)" _ide;
-
-# pkg_add $_ide
-
 echo ""
 echo "## Choose language (shell, python, java, rust, cpp, dotnet-mono, lua, asm):"
 read _language;
+
+pkg_add git-lfs git-cvs
 
 if [ "$_language" = "shell" ]
 then
@@ -30,7 +28,7 @@ fi
 
 if [ "$_language" = "java" ]
 then
-  pkg_add intellij jdk jd-gui meson maven
+  pkg_add jdk jd-gui meson maven
   
   echo "Choose IDE (intellij, netbeans):"
   read _ide;
@@ -45,12 +43,22 @@ fi
 
 if [ "$_language" = "cpp" ]
 then
-  pkg_add qtcreator qt5 qt6 cmake ninja meson llvm
+  pkg_add qt5 qt6 cmake ninja meson llvm
+  
+  echo "Install GCC? (yes/no)"
+  read _installGcc;
+  
+  if [ "$_installGcc" = "yes" ]
+  then
+    pkg_add gcc gdb
+  fi
+  
+  echo "Choose IDE (qtcreator, codeblocks)"
 fi
 
 if [ "$_language" = "dotnet-mono" ]
 then
-  pkg_add nuget msbuild mono-addins mono
+  pkg_add nuget msbuild mono-addins mono dnspy
 fi
 
 if [ "$_language" = "lua" ]
