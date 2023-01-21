@@ -11,10 +11,10 @@ echo "################################################################"
 echo ""
 
 echo ""
-echo "## Choose language (shell, python, java, rust, cpp, dotnet-mono, lua, asm, web, avr):"
+echo "## Choose language (shell, python, java, rust, cpp, dotnet-mono, lua, asm, web, avr, gameboy):"
 read _language;
 
-pkg_add git-lfs git-cvs
+pkg_add git-lfs git-cvs rizin
 
 if [ "$_language" = "shell" ]
 then
@@ -82,6 +82,11 @@ fi
 if [ "$_language" = "avr" ]
 then
   pkg_add avrdude simulavr 
+fi
+
+if [ "$_language" = "gameboy" ]
+then
+  pkg_add rgbds
 fi
 
 echo "Install SDL2? (yes/no)"
