@@ -34,6 +34,14 @@ then
   read _ide;
   
   pkg_add $_ide
+  
+  echo "Install Android tools? (yes/no)"
+  read _android;
+  
+  if [ "$_android" = "yes" ]
+  then
+    pkg_add jadx adb apktool
+  fi
 fi
 
 if [ "$_language" = "rust" ]
@@ -53,7 +61,7 @@ then
     pkg_add gcc gdb
   fi
   
-  echo "Choose IDE (qt-creator, codeblocks)"
+  echo "Choose IDE (qt-creator, codeblocks, kdevelop)"
   read _cppIde;
   
   pkg_add $_cppIde
