@@ -111,6 +111,8 @@ then
 
     rcctl disable xenodm
     rcctl enable multicast messagebus avahi_daemon gdm
+    
+    pkg_add gedit gnome-terminal nautilus baobab
 fi
 
 echo ""
@@ -137,14 +139,6 @@ then
         echo "neofetch" >> $_shrcFilePath
         echo "# End Added by OpenBSD-Setup script" >> $_shrcFilePath
     fi
-fi
-
-echo "Install terminal, file manager, baobab (disk usage scanner) (GNOME)? (yes/no)"
-read _shouldInstallGnomeCoreTools;
-
-if [ "$_shouldInstallGnomeCoreTools" = "yes" ]
-then
-    pkg_add gnome-terminal nautilus baobab
 fi
 
 echo "Install common tools (flameshot, dconf-editor, inkscape, Virtual Machine Manager (virt-manager), QEMU)? (yes/no)"
