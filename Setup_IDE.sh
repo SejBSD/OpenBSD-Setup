@@ -54,6 +54,9 @@ then
   fi
   
   echo "Choose IDE (qtcreator, codeblocks)"
+  read _cppIde;
+  
+  pkg_add $_cppIde
 fi
 
 if [ "$_language" = "dotnet-mono" ]
@@ -68,7 +71,7 @@ fi
 
 if [ "$_language" = "asm" ]
 then
-  pkg_add nasm 
+  pkg_add yasm ald
 fi
 
 if [ "$_language" = "web" ]
