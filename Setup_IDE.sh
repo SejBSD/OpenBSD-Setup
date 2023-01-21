@@ -11,7 +11,7 @@ echo "################################################################"
 echo ""
 
 echo ""
-echo "## Choose language (shell, python, java, rust, cpp, dotnet-mono, lua, asm):"
+echo "## Choose language (shell, python, java, rust, cpp, dotnet-mono, lua, asm, web):"
 read _language;
 
 pkg_add git-lfs git-cvs
@@ -23,7 +23,7 @@ fi
 
 if [ "$_language" = "python" ]
 then
-  pkg_add pycharm py-pip python
+  pkg_add pycharm py-pip python bpython
 fi
 
 if [ "$_language" = "java" ]
@@ -69,4 +69,9 @@ fi
 if [ "$_language" = "asm" ]
 then
   pkg_add nasm 
+fi
+
+if [ "$_language" = "web" ]
+then
+  pkg_add yarn node 
 fi
