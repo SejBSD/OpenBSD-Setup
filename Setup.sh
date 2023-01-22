@@ -237,3 +237,11 @@ if [ "$_archive" = "yes" ]
 then
     pkg_add zstd zip xz unzip unrar unarr unarj snappy sltar rzip quazip p7zip minizip lzop lz4 lzo2 lrzip deco bzip2 arc
 fi
+
+echo "Configure multimedia-related tools? (yes/no)"
+read _multimedia;
+
+if [ "$_multimedia" = "yes" ]
+then
+    pkg_add lmms shotcut vlc
+fi
