@@ -178,7 +178,7 @@ read _fuse;
 
 if [ "$_fuse" = "yes" ]
 then
-    pkg_add curlftpfs dosfstools e2fsprogs exfat-fuse mtools ntfs-3g squashfs-tools sshfs-fuse
+    pkg_add curlftpfs dosfstools e2fsprogs exfat-fuse mtools ntfs-3g squashfs-tools sshfs-fuse fuse-zip
 fi
 
 echo "Configure Converters? (yes/no)"
@@ -228,4 +228,12 @@ read _editor;
 if [ "$_editor" != "" ]
 then
     pkg_add $_editor
+fi
+
+echo "Configure archive-related tools? (yes/no)"
+read _archive;
+
+if [ "$_archive" = "yes" ]
+then
+    pkg_add zstd zip xz unzip unrar unarr unarj snappy sltar rzip quazip p7zip minizip lzop lz4 lzo2 lrzip deco bzip2 arc
 fi
