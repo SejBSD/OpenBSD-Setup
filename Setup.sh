@@ -123,12 +123,12 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-echo "Install core tools (nano, htop, neofetch, usbutils)? (yes/no): "
+echo "Install core tools (nano, htop, neofetch, usbutils, dmidecode)? (yes/no): "
 read _shouldInstallCoreTools;
 
 if [ "$_shouldInstallCoreTools" = "yes" ]
 then
-    pkg_add nano htop neofetch usbutils
+    pkg_add nano htop neofetch usbutils dmidecode
 
     if [ "$_user" != "" ]
     then
