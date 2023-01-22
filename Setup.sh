@@ -212,3 +212,12 @@ if [ "$_pcb" = "yes" ]
 then
     pkg_add kicad lepton-eda librecad oce openscad pcb2gcode qcad
 fi
+
+
+echo "Configure productivity tools? (yes/no)"
+read _pcb;
+
+if [ "$_pcb" = "yes" ]
+then
+    pkg_add kicad projectlibre impressive gnucash gnucash-docs
+fi
