@@ -242,7 +242,7 @@ read _multimedia;
 
 if [ "$_multimedia" = "yes" ]
 then
-    pkg_add lmms shotcut vlc krita inkscape
+    pkg_add lmms shotcut vlc krita inkscape ffmpeg
 fi
 
 echo "Configure printer tools? (yes/no)"
