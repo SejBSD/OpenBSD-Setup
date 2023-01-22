@@ -221,3 +221,11 @@ if [ "$_pcb" = "yes" ]
 then
     pkg_add kicad projectlibre impressive gnucash gnucash-docs
 fi
+
+echo "Choose editor: zile, texworks, teaqt, qscintilla, poke, neovim-qt, libreoffice, leafpad, hexedit, hexcurse, focuswriter, featherpad, emacs, abiword - empty for none"
+read _editor;
+
+if [ "$_editor" != "" ]
+then
+    pkg_add $_editor
+fi
