@@ -141,12 +141,12 @@ then
     fi
 fi
 
-echo "Install common tools (flameshot, dconf-editor, inkscape, Virtual Machine Manager (virt-manager), QEMU)? (yes/no)"
+echo "Install common tools (flameshot, dconf-editor, inkscape, Virtual Machine Manager (virt-manager), QEMU, remotebox)? (yes/no)"
 read _shouldInstallCommonTools;
 
 if [ "$_shouldInstallCommonTools" = "yes" ]
 then
-    pkg_add flameshot dconf-editor inkscape virt-manager qemu
+    pkg_add flameshot dconf-editor inkscape virt-manager qemu remotebox
 fi
 
 echo "Install Web Browser (firefox/chromium)? (empty for none)"
