@@ -123,12 +123,12 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-echo "Install core tools (nano, htop, neofetch, usbutils, dmidecode, ddrescue)? (yes/no): "
+echo "Install core tools (nano, htop, neofetch, usbutils, dmidecode, ddrescue, llama)? (yes/no): "
 read _shouldInstallCoreTools;
 
 if [ "$_shouldInstallCoreTools" = "yes" ]
 then
-    pkg_add nano htop neofetch usbutils dmidecode ddrescue
+    pkg_add nano htop neofetch usbutils dmidecode ddrescue llama
 
     if [ "$_user" != "" ]
     then
@@ -170,7 +170,7 @@ read _cloudTools;
 
 if [ "$_cloudTools" = "yes" ]
 then
-    pkg_add awscli cloud-agent google-cloud-sdk
+    pkg_add awscli cloud-agent google-cloud-sdk packer
 fi
 
 echo "Configure FUSE/FS? (yes/no)"
