@@ -28,7 +28,7 @@ fi
 
 if [ "$_language" = "java" ]
 then
-  pkg_add jdk jd-gui meson maven
+  pkg_add jdk jd-gui meson maven gradle jna
   
   echo "Choose IDE (intellij, netbeans):"
   read _ide;
