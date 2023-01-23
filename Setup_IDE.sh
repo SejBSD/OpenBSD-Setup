@@ -61,6 +61,14 @@ then
     pkg_add gcc gdb
   fi
   
+  echo "Install TinyCC? (yes/no)"
+  read _tinycc;
+  
+  if [ "$_tinycc" = "yes" ]
+  then
+    pkg_add tcc
+  fi
+  
   echo "Choose IDE (qt-creator, codeblocks, kdevelop)"
   read _cppIde;
   
