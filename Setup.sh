@@ -127,12 +127,12 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-echo "Install core tools (nano, htop, neofetch, usbutils, dmidecode, ddrescue, llama, ksnip)? (yes/no): "
+echo "Install core tools (nano, htop, neofetch, usbutils, dmidecode, ddrescue, llama, ksnip, dbus)? (yes/no): "
 read _shouldInstallCoreTools;
 
 if [ "$_shouldInstallCoreTools" = "yes" ]
 then
-    pkg_add nano htop neofetch usbutils dmidecode ddrescue llama ksnip
+    pkg_add nano htop neofetch usbutils dmidecode ddrescue llama ksnip dbus
 
     if [ "$_user" != "" ]
     then
