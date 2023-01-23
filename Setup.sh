@@ -252,3 +252,11 @@ if [ "$_printer" = "yes" ]
 then
     pkg_add brlaser cups-pk-helper cups-bjnp cups cups-filters cups-pdf foomatic-db foomatic-db-engine foo2zjs gtklp gutenprint hplip htmldoc ocrmypdf pdfarranger printrun poppler psutils ptouch-driver qpdf scribus splix system-config-printer unpaper
 fi
+
+echo "Configure Vulkan tools? (yes/no)"
+read _vulkan;
+
+if [ "$_vulkan" = "yes" ]
+then
+    pkg_add vulkan-tools vulkan-loader vulkan-headers
+fi
