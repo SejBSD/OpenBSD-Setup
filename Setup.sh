@@ -194,7 +194,7 @@ read _revEng;
 
 if [ "$_revEng" = "yes" ]
 then
-    pkg_add rizin binwalk
+    pkg_add rizin binwalk ghidra
 fi
 
 echo "Configure Containers? (yes/no)"
@@ -202,7 +202,7 @@ read _containers;
 
 if [ "$_containers" = "yes" ]
 then
-    pkg_add docker-cli kubectl oc serf terraform
+    pkg_add docker-cli kubectl oc serf terraform jailkit
 fi
 
 echo "Configure PCB/Modeling-related tools? (yes/no)"
@@ -259,4 +259,12 @@ read _vulkan;
 if [ "$_vulkan" = "yes" ]
 then
     pkg_add vulkan-tools vulkan-loader vulkan-headers glfw glew gle freeglut
+fi
+
+echo "Configure Security/Pentesting tools? (yes/no)"
+read _security;
+
+if [ "$_security" = "yes" ]
+then
+    pkg_add pixiewps pgpdump pdfid pdfcrack pdf-parser osv-scanner lynis knockpy john john-jumbo isic ipguard integrit hydra gnutls fwbuilder fcrackzip exploitdb dsniff dirb cracklib clamav burpsuite amap aircrack-ng aide regripper reaver rdp rarcrack wpa_supplicant tls-attacker step-cli sqlmap
 fi
