@@ -38,8 +38,10 @@ then
   echo "##                                                            ##"
   echo "################################################################"
   echo ""
+  
+  # TODO: Add common libs + tools
 
-  pkg_add pycharm py-pip python bpython py-test py-virtualenv
+  pkg_add pycharm py-pip python bpython py-test py-virtualenv parrot
 fi
 
 if [ "$_language" = "java" ]
@@ -237,3 +239,5 @@ then
 
   pkg_add swi-prolog gprolog
 fi
+
+# TODO: Add Perl
