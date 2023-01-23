@@ -11,7 +11,7 @@ echo "################################################################"
 echo ""
 
 echo ""
-echo "## Choose language (shell, python, java, rust, cpp, dotnet-mono, lua, asm, web, avr, gameboy):"
+echo "## Choose language (shell, python, java, rust, cpp, dotnet-mono, lua, asm, web, avr, gameboy, prolog):"
 read _language;
 
 pkg_add git-lfs git-cvs git-sync
@@ -223,4 +223,17 @@ then
   echo ""
 
   pkg_add sdl sdl-ttf sdl-sound sdl-pango sdl-net sdl-mixer sdl-image sdl-gfx
+fi
+
+if [ "$_language" = "prolog" ]
+then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                    Setting up Prolog...                    ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
+  pkg_add swi-prolog gprolog
 fi
