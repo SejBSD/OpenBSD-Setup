@@ -11,7 +11,7 @@ echo "################################################################"
 echo ""
 
 echo ""
-echo "## Choose language (shell, python, java, rust, cpp, dotnet-mono, lua, asm, web, avr, gameboy, prolog):"
+echo "## Choose language (shell, python, java, rust, cpp, dotnet-mono, lua, asm, web, avr, gameboy, prolog, basic, cobol, go, scala):"
 read _language;
 
 pkg_add git-lfs git-cvs git-sync
@@ -240,4 +240,56 @@ then
   pkg_add swi-prolog gprolog
 fi
 
-# TODO: Add Perl
+if [ "$_language" = "basic" ]
+then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                     Setting up BASIC...                    ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
+  pkg_add freebasic
+fi
+
+if [ "$_language" = "cobol" ]
+then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                     Setting up COBOL...                    ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
+  pkg_add gnucobol
+fi
+
+if [ "$_language" = "go" ]
+then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                      Setting up Go...                      ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
+  pkg_add go
+fi
+
+if [ "$_language" = "scala" ]
+then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                     Setting up Scala...                    ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
+  pkg_add scala
+fi
+
+# TODO: Add Perl - pkg_add parrot
