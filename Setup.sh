@@ -266,5 +266,5 @@ read _security;
 
 if [ "$_security" = "yes" ]
 then
-    pkg_add pixiewps pgpdump pdfid pdfcrack pdf-parser osv-scanner lynis knockpy john john-jumbo isic ipguard integrit hydra gnutls fwbuilder fcrackzip exploitdb dsniff dirb cracklib clamav burpsuite amap aircrack-ng aide regripper reaver rdp rarcrack wpa_supplicant tls-attacker step-cli sqlmap
+    pkg_add pixiewps pgpdump pdfid pdfcrack pdf-parser osv-scanner lynis knockpy john john-jumbo isic ipguard integrit hydra gnutls fwbuilder fcrackzip exploitdb dsniff dirb cracklib clamav burpsuite amap aircrack-ng aide regripper reaver rdp rarcrack wpa_supplicant tls-attacker step-cli sqlmap pwntools
 fi
