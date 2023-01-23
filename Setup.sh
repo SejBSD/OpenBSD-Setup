@@ -92,6 +92,7 @@ echo "Currently there are a couple of supported Desktop Environments:"
 echo "  - gnome -> Full GNOME environment"
 echo "  - openbox -> small, fast & usable window manager"
 echo "  - i3 -> improved dynamic tiling window manager"
+echo "  - awesome -> highly configurable framework window manager"
 
 echo "Which one: "
 read _desktopEnv;
