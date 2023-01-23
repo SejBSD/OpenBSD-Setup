@@ -123,12 +123,12 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-echo "Install core tools (nano, htop, neofetch, usbutils, dmidecode, ddrescue, llama)? (yes/no): "
+echo "Install core tools (nano, htop, neofetch, usbutils, dmidecode, ddrescue, llama, ksnip)? (yes/no): "
 read _shouldInstallCoreTools;
 
 if [ "$_shouldInstallCoreTools" = "yes" ]
 then
-    pkg_add nano htop neofetch usbutils dmidecode ddrescue llama
+    pkg_add nano htop neofetch usbutils dmidecode ddrescue llama ksnip
 
     if [ "$_user" != "" ]
     then
@@ -242,7 +242,7 @@ read _multimedia;
 
 if [ "$_multimedia" = "yes" ]
 then
-    pkg_add lmms shotcut vlc krita krita-gmic-plugin inkscape ffmpeg sk1 pixelorama gimp opencv openbsd-backgrounds ocrad mypaint mypaint-brushes mypaint-brushes2
+    pkg_add lmms shotcut vlc krita krita-gmic-plugin inkscape ffmpeg sk1 pixelorama gimp opencv openbsd-backgrounds ocrad mypaint mypaint-brushes mypaint-brushes2 img2pdf ImageMagick GraphicsMagick gif2png 
 fi
 
 echo "Configure printer tools? (yes/no)"
@@ -253,10 +253,10 @@ then
     pkg_add brlaser cups-pk-helper cups-bjnp cups cups-filters cups-pdf foomatic-db foomatic-db-engine foo2zjs gtklp gutenprint hplip htmldoc ocrmypdf pdfarranger printrun poppler psutils ptouch-driver qpdf scribus splix system-config-printer unpaper simple-scan
 fi
 
-echo "Configure Vulkan tools? (yes/no)"
+echo "Configure Vulkan/OpenGL tools? (yes/no)"
 read _vulkan;
 
 if [ "$_vulkan" = "yes" ]
 then
-    pkg_add vulkan-tools vulkan-loader vulkan-headers
+    pkg_add vulkan-tools vulkan-loader vulkan-headers glfw glew gle freeglut
 fi
