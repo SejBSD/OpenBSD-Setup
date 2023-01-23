@@ -145,12 +145,12 @@ then
     fi
 fi
 
-echo "Install common tools (flameshot, dconf-editor, inkscape, Virtual Machine Manager (virt-manager), QEMU, remotebox, virt-viewer)? (yes/no)"
+echo "Install common tools (flameshot, dconf-editor, inkscape, Virtual Machine Manager (virt-manager), QEMU, remotebox, virt-viewer, freerdp)? (yes/no)"
 read _shouldInstallCommonTools;
 
 if [ "$_shouldInstallCommonTools" = "yes" ]
 then
-    pkg_add flameshot dconf-editor inkscape virt-manager qemu remotebox virt-viewer
+    pkg_add flameshot dconf-editor inkscape virt-manager qemu remotebox virt-viewer freerdp
 fi
 
 echo "Install Web Browser (firefox/chromium)? (empty for none)"
@@ -272,3 +272,5 @@ if [ "$_security" = "yes" ]
 then
     pkg_add pixiewps pgpdump pdfid pdfcrack pdf-parser osv-scanner lynis knockpy john john-jumbo isic ipguard integrit hydra gnutls fwbuilder fcrackzip exploitdb dsniff dirb cracklib clamav burpsuite amap aircrack-ng aide regripper reaver rdp rarcrack wpa_supplicant tls-attacker step-cli sqlmap pwntools
 fi
+
+# TODO: Organize tools
