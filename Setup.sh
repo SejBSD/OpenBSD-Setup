@@ -91,6 +91,7 @@ echo ""
 echo "Currently there are a couple of supported Desktop Environments:"
 echo "  - gnome -> Full GNOME environment"
 echo "  - xfce4 -> lightweight desktop environment for UNIX-like operating systems"
+echo "  - kde -> Full KDE environment"
 echo "  - openbox -> small, fast & usable window manager"
 echo "  - i3 -> improved dynamic tiling window manager"
 echo "  - awesome -> highly configurable framework window manager"
@@ -118,6 +119,11 @@ then
     rcctl enable multicast messagebus avahi_daemon gdm
     
     pkg_add gedit gnome-terminal nautilus baobab deja-dup terminator
+fi
+
+if [ "$_desktopEnv" = "kde" ]
+then
+    pkg_add plasma-framework
 fi
 
 echo ""
