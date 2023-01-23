@@ -178,7 +178,7 @@ read _fuse;
 
 if [ "$_fuse" = "yes" ]
 then
-    pkg_add curlftpfs dosfstools e2fsprogs exfat-fuse mtools ntfs-3g squashfs-tools sshfs-fuse fuse-zip
+    pkg_add curlftpfs dosfstools e2fsprogs exfat-fuse mtools ntfs-3g squashfs-tools sshfs-fuse fuse-zip encfs
 fi
 
 echo "Configure Converters? (yes/no)"
