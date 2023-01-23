@@ -90,6 +90,7 @@ echo ""
 
 echo "Currently there are a couple of supported Desktop Environments:"
 echo "  - gnome -> Full GNOME environment"
+echo "  - openbox -> small, fast & usable window manager"
 
 echo "Which one: "
 read _desktopEnv;
