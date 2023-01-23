@@ -112,7 +112,7 @@ then
     rcctl disable xenodm
     rcctl enable multicast messagebus avahi_daemon gdm
     
-    pkg_add gedit gnome-terminal nautilus baobab deja-dup
+    pkg_add gedit gnome-terminal nautilus baobab deja-dup terminator
 fi
 
 echo ""
