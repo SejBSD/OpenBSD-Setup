@@ -79,7 +79,7 @@ fi
 
 if [ "$_language" = "asm" ]
 then
-  pkg_add yasm ald
+  pkg_add yasm ald wabt
 fi
 
 if [ "$_language" = "web" ]
