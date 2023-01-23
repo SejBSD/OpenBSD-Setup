@@ -153,7 +153,7 @@ then
   echo "################################################################"
   echo ""
 
-  pkg_add yasm ald wabt binaryen
+  pkg_add yasm ald wabt binaryen distorm3
 fi
 
 if [ "$_language" = "web" ]
