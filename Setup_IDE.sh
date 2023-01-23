@@ -18,16 +18,40 @@ pkg_add git-lfs git-cvs git-sync
 
 if [ "$_language" = "shell" ]
 then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                     Setting up Shell...                    ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
   pkg_add autoconf automake
 fi
 
 if [ "$_language" = "python" ]
 then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                    Setting up Python...                    ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
   pkg_add pycharm py-pip python bpython py-test py-virtualenv
 fi
 
 if [ "$_language" = "java" ]
 then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                     Setting up Java...                     ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
   pkg_add jdk jd-gui meson maven gradle jna
   
   echo "Choose IDE (intellij, netbeans):"
@@ -46,11 +70,27 @@ fi
 
 if [ "$_language" = "rust" ]
 then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                     Setting up Rust...                     ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
   pkg_add rust meson
 fi
 
 if [ "$_language" = "cpp" ]
 then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                     Setting up C/C++...                    ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
   pkg_add qt5 qt6 cmake ninja meson llvm samurai
   
   echo "Install GCC? (yes/no)"
@@ -77,31 +117,79 @@ fi
 
 if [ "$_language" = "dotnet-mono" ]
 then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                  Setting up .NET (Mono)...                 ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
   pkg_add nuget msbuild mono-addins mono dnspy
 fi
 
 if [ "$_language" = "lua" ]
 then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                      Setting up Lua...                     ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
   pkg_add lua
 fi
 
 if [ "$_language" = "asm" ]
 then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                      Setting up Asm...                     ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
   pkg_add yasm ald wabt binaryen
 fi
 
 if [ "$_language" = "web" ]
 then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                      Setting up Web...                     ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
   pkg_add yarn node 
 fi
 
 if [ "$_language" = "avr" ]
 then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                      Setting up AVR...                     ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
   pkg_add avrdude simulavr 
 fi
 
 if [ "$_language" = "gameboy" ]
 then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                    Setting up GameBoy...                   ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
   pkg_add rgbds
 fi
 
@@ -110,6 +198,14 @@ read _installSdlTwo;
 
 if [ "$_installSdlTwo" = "yes" ]
 then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                     Setting up SDL2...                     ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
   pkg_add sdl2 sdl2-ttf sdl2-net sdl2-mixer sdl2-image sdl2-gfx
 fi
 
@@ -118,5 +214,13 @@ read _installSdlOne;
 
 if [ "$_installSdlOne" = "yes" ]
 then
+  echo ""
+  echo "################################################################"
+  echo "##                                                            ##"
+  echo "##                      Setting up SDL...                     ##"
+  echo "##                                                            ##"
+  echo "################################################################"
+  echo ""
+
   pkg_add sdl sdl-ttf sdl-sound sdl-pango sdl-net sdl-mixer sdl-image sdl-gfx
 fi
