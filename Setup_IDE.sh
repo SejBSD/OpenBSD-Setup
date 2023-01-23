@@ -94,6 +94,8 @@ then
   echo ""
 
   pkg_add qt5 qt6 cmake ninja meson llvm samurai
+
+  # TODO: Add Qt5 and Qt6 packages with yes/no
   
   echo "Install GCC? (yes/no)"
   read _installGcc;
@@ -166,7 +168,7 @@ then
   echo "################################################################"
   echo ""
 
-  pkg_add yarn node 
+  pkg_add yarn node sass
 fi
 
 if [ "$_language" = "avr" ]
