@@ -127,7 +127,7 @@ then
   echo "################################################################"
   echo ""
 
-  pkg_add nuget msbuild mono-addins mono dnspy
+  pkg_add nuget msbuild mono-addins mono dnspy mono-gtk2
 fi
 
 if [ "$_language" = "lua" ]
