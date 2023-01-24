@@ -278,87 +278,99 @@ then
   pkg_add rgbds
 fi
 
-echo "Install SDL2? (yes/no)"
-read _installSdlTwo;
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                     Setting up SDL2...                     ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
-if [ "$_installSdlTwo" = "yes" ]
+echo "Configure SDL2? (yes/empty)"
+read _sdl2;
+
+if [ "$_sdl2" != "" ]
 then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                     Setting up SDL2...                     ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
-
   pkg_add sdl2 sdl2-ttf sdl2-net sdl2-mixer sdl2-image sdl2-gfx
 fi
 
-echo "Install SDL1? (yes/no)"
-read _installSdlOne;
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                      Setting up SDL...                     ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
-if [ "$_installSdlOne" = "yes" ]
+echo "Configure SDL1? (yes/empty)"
+read _sdl;
+
+if [ "$_sdl" != "" ]
 then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                      Setting up SDL...                     ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
-
   pkg_add sdl sdl-ttf sdl-sound sdl-pango sdl-net sdl-mixer sdl-image sdl-gfx
 fi
 
-if [ "$_language" = "prolog" ]
-then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                    Setting up Prolog...                    ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                    Setting up Prolog...                    ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
+echo "Configure Prolog? (yes/empty)"
+read _prolog;
+
+if [ "$_prolog" != "" ]
+then
   pkg_add swi-prolog gprolog
 fi
 
-if [ "$_language" = "basic" ]
-then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                     Setting up BASIC...                    ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                     Setting up BASIC...                    ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
+echo "Configure BASIC? (yes/empty)"
+read _basic;
+
+if [ "$_basic" != "" ]
+then
   pkg_add freebasic
 fi
 
-if [ "$_language" = "cobol" ]
-then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                     Setting up COBOL...                    ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                     Setting up COBOL...                    ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
+echo "Configure COBOL? (yes/empty)"
+read _cobol;
+
+if [ "$_cobol" != "" ]
+then
   pkg_add gnucobol
 fi
 
-if [ "$_language" = "go" ]
-then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                      Setting up Go...                      ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                      Setting up Go...                      ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
+echo "Configure Go? (yes/empty)"
+read _go;
+
+if [ "$_go" != "" ]
+then
   pkg_add go
 fi
 
