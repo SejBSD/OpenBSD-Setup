@@ -90,7 +90,7 @@ echo ""
 
 echo "Currently there are a couple of supported Desktop Environments: (empty for none)"
 echo "  - gnome -> Full GNOME environment"
-echo "  - xfce4 -> lightweight desktop environment for UNIX-like operating systems"
+echo "  - xfce -> lightweight desktop environment for UNIX-like operating systems"
 echo "  - kde -> Full KDE environment"
 echo "  - mate -> MATE desktop"
 echo "  - lxqt -> LXQt desktop"
@@ -139,7 +139,7 @@ fi
 
 if [ "$_desktopEnv" = "xfce4" ]
 then
-    pkg_add xfce
+    pkg_add xfce4
 fi
 
 echo ""
