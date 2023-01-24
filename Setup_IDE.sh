@@ -295,3 +295,19 @@ then
 fi
 
 # TODO: Add Perl - pkg_add parrot
+
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                  Setting up phpMyAdmin...                  ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
+
+echo "Configure phpMyAdmin? (yes/no)"
+read _phpMyAdmin;
+
+if [ "$_phpMyAdmin" = "yes" ]
+then
+  pkg_add phpmyadmin
+fi
