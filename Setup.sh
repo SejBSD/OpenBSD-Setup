@@ -92,6 +92,8 @@ echo "Currently there are a couple of supported Desktop Environments: (empty for
 echo "  - gnome -> Full GNOME environment"
 echo "  - xfce4 -> lightweight desktop environment for UNIX-like operating systems"
 echo "  - kde -> Full KDE environment"
+echo "  - mate -> MATE desktop"
+echo "  - lxqt -> LXQt desktop"
 echo "  - openbox -> small, fast & usable window manager"
 echo "  - i3 -> improved dynamic tiling window manager"
 echo "  - awesome -> highly configurable framework window manager"
@@ -135,6 +137,11 @@ then
     pkg_add plasma-framework
 fi
 
+if [ "$_desktopEnv" = "xfce4" ]
+then
+    pkg_add xfce
+fi
+
 echo ""
 echo "################################################################"
 echo "##                                                            ##"
@@ -169,7 +176,7 @@ then
     pkg_add flameshot dconf-editor inkscape virt-manager qemu remotebox virt-viewer freerdp deluge httrack
 fi
 
-echo "Install Web Browser (firefox/chromium/ungoogled-chromium)? (empty for none)"
+echo "Install Web Browser (firefox/chromium/ungoogled-chromium/tor-browser)? (empty for none)"
 read _webBrowser;
 
 if [ "$_webBrowser" != "" ]

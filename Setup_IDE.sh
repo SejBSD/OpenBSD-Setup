@@ -261,7 +261,7 @@ read _avr;
 
 if [ "$_avr" != "" ]
 then
-  pkg_add avrdude simulavr 
+  pkg_add avr avrdude simulavr 
 fi
 
 echo ""
