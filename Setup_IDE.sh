@@ -316,3 +316,35 @@ if [ "$_phpMyAdmin" = "yes" ]
 then
   pkg_add phpmyadmin
 fi
+
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                     Setting up NGINX...                    ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
+
+echo "Configure NGINX? (yes/no)"
+read _nginx;
+
+if [ "$_nginx" = "yes" ]
+then
+  pkg_add nginx
+fi
+
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##              Setting up Apache HTTP Server...              ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
+
+echo "Configure Apache HTTP Server? (yes/no)"
+read _apacheHttp;
+
+if [ "$_apacheHttp" = "yes" ]
+then
+  pkg_add apache-httpd
+fi
