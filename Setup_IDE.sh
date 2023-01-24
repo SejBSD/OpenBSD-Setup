@@ -146,7 +146,18 @@ then
   
   if [ "$_qt5" != "" ]
   then
-    pkg_add qt5 # TODO: Add all Qt5 packages
+    pkg_add qt5
+  fi
+
+  echo "Configure Qt Current? (yes/empty)"
+  read _qtCurrent;
+  
+  if [ "$_qtCurrent" != "" ]
+  then
+    pkg_add qt3d qtbase qtcharts qtconnectivity qtdatavis3d qtdeclarative qtgamepad qtgraphicaleffects qtimageformats qtlocation qtlottie \
+            qtmultimedia qtnetworkauth qtpurchasing qtquickcontrols qtquickcontrols2 qtremoteobjects qtscript qtscxml qtsensors qtserialbus \
+            qtserialport qtspeech qtsvg qttools qttranslations qtvirtualkeyboard qtwayland qtwebchannel qtwebengine qtwebglplugin qtwebkit \
+            qtwebsockets qtwebview qtx11extras qtxmlpatterns
   fi
   
   echo "Configure GCC? (yes/empty)"
