@@ -11,55 +11,85 @@ echo "################################################################"
 echo ""
 
 echo ""
-echo "## Choose language (shell, python, java, rust, cpp, dotnet-mono, lua, asm, web, avr, gameboy, prolog, basic, cobol, go, scala):"
-read _language;
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                      Setting up Git...                     ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
-pkg_add git-lfs git-cvs git-sync
+echo "Configure Git? (yes/empty)"
+read _git;
 
-if [ "$_language" = "shell" ]
+if [ "$_git" != "" ]
 then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                     Setting up Shell...                    ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
+  pkg_add git-lfs git-cvs git-sync
+fi
 
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                     Setting up Shell...                    ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
+
+echo "Configure Shell? (yes/empty)"
+read _shell;
+
+if [ "$_shell" != "" ]
+then
   pkg_add autoconf automake
 fi
 
-if [ "$_language" = "python" ]
-then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                    Setting up Python...                    ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
-  
-  # TODO: Add common libs + tools
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                    Setting up Python...                    ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
-  pkg_add pycharm py-pip python bpython py-test py-virtualenv parrot jupyter-notebook
+echo "Configure Python? (yes/empty)"
+read _python;
+
+if [ "$_python" != "" ]
+then
+  pkg_add py-pip python bpython py-test py-virtualenv parrot jupyter-notebook
+
+  echo "Choose IDE (pycharm): (empty for none)"
+  read _ide;
+
+  if [ "$_ide" != "" ]
+  then
+    pkg_add $_ide
+  fi
 fi
 
-if [ "$_language" = "java" ]
-then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                     Setting up Java...                     ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
+# TODO: Add common Python libs + tools
 
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                     Setting up Java...                     ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
+
+echo "Configure Java? (yes/empty)"
+read _java;
+
+if [ "$_java" != "" ]
+then
   pkg_add jdk jd-gui meson maven gradle jna tomcat
-  
-  echo "Choose IDE (intellij, netbeans):"
+
+  echo "Choose IDE (intellij, netbeans): (empty for none)"
   read _ide;
-  
-  pkg_add $_ide
+
+  if [ "$_ide" != "" ]
+  then
+    pkg_add $_ide
+  fi
   
   echo "Install Android tools? (yes/no)"
   read _android;
@@ -70,53 +100,76 @@ then
   fi
 fi
 
-if [ "$_language" = "rust" ]
-then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                     Setting up Rust...                     ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                     Setting up Rust...                     ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
+echo "Configure Rust? (yes/empty)"
+read _rust;
+
+if [ "$_rust" != "" ]
+then
   pkg_add rust meson
 fi
 
-if [ "$_language" = "cpp" ]
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                     Setting up C/C++...                    ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
+
+echo "Configure C/C++? (yes/empty)"
+read _cpp;
+
+if [ "$_cpp" != "" ]
 then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                     Setting up C/C++...                    ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
+  pkg_add cmake ninja meson llvm samurai
 
-  pkg_add qt5 qt6 cmake ninja meson llvm samurai
+  echo "Configure Qt6? (yes/empty)"
+  read _qt6;
+  
+  if [ "$_qt6" != "" ]
+  then
+    pkg_add qt6 # TODO: Add all Qt6 packages
+  fi
 
-  # TODO: Add Qt5 and Qt6 packages with yes/no
+  echo "Configure Qt5? (yes/empty)"
+  read _qt5;
   
-  echo "Install GCC? (yes/no)"
-  read _installGcc;
+  if [ "$_qt5" != "" ]
+  then
+    pkg_add qt5 # TODO: Add all Qt5 packages
+  fi
   
-  if [ "$_installGcc" = "yes" ]
+  echo "Configure GCC? (yes/empty)"
+  read _gcc;
+  
+  if [ "$_gcc" != "" ]
   then
     pkg_add gcc gdb
   fi
   
-  echo "Install TinyCC? (yes/no)"
+  echo "Configure TinyCC? (yes/empty)"
   read _tinycc;
   
-  if [ "$_tinycc" = "yes" ]
+  if [ "$_tinycc" != "" ]
   then
     pkg_add tcc
   fi
   
-  echo "Choose IDE (qt-creator, codeblocks, kdevelop)"
-  read _cppIde;
-  
-  pkg_add $_cppIde
+  echo "Choose IDE (qt-creator, codeblocks, kdevelop): (empty for none)"
+  read _ide;
+
+  if [ "$_ide" != "" ]
+  then
+    pkg_add $_ide
+  fi
 fi
 
 if [ "$_language" = "dotnet-mono" ]
