@@ -136,7 +136,9 @@ then
   
   if [ "$_qt6" != "" ]
   then
-    pkg_add qt6 # TODO: Add all Qt6 packages
+    pkg_add qt6 qt6-qt3d qt6-qt5compat qt6-qtcharts qt6-qtconnectivity qt6-qtdatavis3d qt6-qtimageformats qt6-qtlottie qt6-qtmultimedia \
+            qt6-qtnetworkauth qt6-qtpositioning qt6-qtquick3d qt6-qtquicktimeline qt6-qtremoteobjects qt6-qtscxml qt6-qtsensors qt6-qtserialbus \
+            qt6-qtserialport qt6-qtshadertools qt6-qtsvg qt6-qttools qt6-qttranslations qt6-qtvirtualkeyboard qt6-qtwayland
   fi
 
   echo "Configure Qt5? (yes/empty)"
