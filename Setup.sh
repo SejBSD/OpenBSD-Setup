@@ -88,7 +88,7 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-echo "Currently there are a couple of supported Desktop Environments:"
+echo "Currently there are a couple of supported Desktop Environments: (empty for none)"
 echo "  - gnome -> Full GNOME environment"
 echo "  - xfce4 -> lightweight desktop environment for UNIX-like operating systems"
 echo "  - kde -> Full KDE environment"
@@ -100,7 +100,10 @@ echo "  - bspwm -> binary space partitioning window manager"
 echo "Which one: "
 read _desktopEnv;
 
-pkg_add $_desktopEnv
+if [ "$_desktopEnv" != "" ]
+then
+    pkg_add $_desktopEnv
+fi
 
 if [ "$_desktopEnv" = "gnome" ]
 then
@@ -117,8 +120,14 @@ then
 
     rcctl disable xenodm
     rcctl enable multicast messagebus avahi_daemon gdm
-    
-    pkg_add gedit gnome-terminal nautilus baobab deja-dup terminator
+
+    echo "Add GNOME software? (yes/empty)"
+    read _gnomeSoftware;
+
+    if [ "$_gnomeSoftware" != "" ]
+    then
+        pkg_add gedit gnome-terminal nautilus baobab deja-dup terminator # TODO: Add GNOME-specific software from ports
+    fi
 fi
 
 if [ "$_desktopEnv" = "kde" ]
