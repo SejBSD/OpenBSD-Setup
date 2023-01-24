@@ -54,7 +54,7 @@ then
   echo "################################################################"
   echo ""
 
-  pkg_add jdk jd-gui meson maven gradle jna
+  pkg_add jdk jd-gui meson maven gradle jna tomcat
   
   echo "Choose IDE (intellij, netbeans):"
   read _ide;

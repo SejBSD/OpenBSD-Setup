@@ -160,7 +160,7 @@ then
     pkg_add flameshot dconf-editor inkscape virt-manager qemu remotebox virt-viewer freerdp
 fi
 
-echo "Install Web Browser (firefox/chromium)? (empty for none)"
+echo "Install Web Browser (firefox/chromium/ungoogled-chromium)? (empty for none)"
 read _webBrowser;
 
 if [ "$_webBrowser" != "" ]
