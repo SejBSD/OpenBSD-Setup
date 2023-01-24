@@ -269,7 +269,7 @@ read _multimedia;
 
 if [ "$_multimedia" = "yes" ]
 then
-    pkg_add lmms shotcut vlc krita krita-gmic-plugin inkscape ffmpeg sk1 pixelorama gimp opencv openbsd-backgrounds ocrad mypaint mypaint-brushes mypaint-brushes2 img2pdf ImageMagick GraphicsMagick gif2png flameshot darktable cadubi audacious-player ncspot lmms openal rhythmbox freealut flac audacity alac_decoder celt gsm libvorbis mac opencore-amr opus speex wavpack
+    pkg_add lmms shotcut vlc krita krita-gmic-plugin inkscape ffmpeg sk1 pixelorama gimp audacious opencv openbsd-backgrounds ocrad mypaint mypaint-brushes mypaint-brushes2 img2pdf ImageMagick GraphicsMagick gif2png flameshot darktable cadubi audacious-player ncspot lmms openal rhythmbox freealut flac audacity alac_decoder celt gsm libvorbis mac opencore-amr opus speex wavpack
 fi
 
 echo "Configure printer tools? (yes/no)"
