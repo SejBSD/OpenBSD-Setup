@@ -41,7 +41,7 @@ then
   
   # TODO: Add common libs + tools
 
-  pkg_add pycharm py-pip python bpython py-test py-virtualenv parrot
+  pkg_add pycharm py-pip python bpython py-test py-virtualenv parrot jupyter-notebook
 fi
 
 if [ "$_language" = "java" ]
@@ -169,6 +169,11 @@ then
   echo ""
 
   pkg_add yarn node sass
+
+  echo "Choose IDE (bluefish)"
+  read _ide;
+  
+  pkg_add $_ide
 fi
 
 if [ "$_language" = "avr" ]
