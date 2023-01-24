@@ -172,86 +172,109 @@ then
   fi
 fi
 
-if [ "$_language" = "dotnet-mono" ]
-then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                  Setting up .NET (Mono)...                 ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                  Setting up .NET (Mono)...                 ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
-  pkg_add nuget msbuild mono-addins mono dnspy mono-gtk2
+echo "Configure .NET (Mono)? (yes/empty)"
+read _net;
+
+if [ "$_net" != "" ]
+then
+  pkg_add nuget msbuild mono mono-addins dnspy mono-gtk2
 fi
 
-if [ "$_language" = "lua" ]
-then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                      Setting up Lua...                     ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                      Setting up Lua...                     ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
+echo "Configure Lua? (yes/empty)"
+read _lua;
+
+if [ "$_lua" != "" ]
+then
   pkg_add lua
 fi
 
-if [ "$_language" = "asm" ]
-then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                      Setting up Asm...                     ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                      Setting up Asm...                     ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
+echo "Configure Asm? (yes/empty)"
+read _asm;
+
+if [ "$_asm" != "" ]
+then
   pkg_add yasm ald wabt binaryen distorm3
 fi
 
-if [ "$_language" = "web" ]
-then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                      Setting up Web...                     ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                      Setting up Web...                     ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
+echo "Configure Web? (yes/empty)"
+read _web;
+
+if [ "$_web" != "" ]
+then
   pkg_add yarn node sass
 
   echo "Choose IDE (bluefish)"
   read _ide;
   
-  pkg_add $_ide
+  if [ "$_ide" != "" ]
+  then
+    pkg_add $_ide
+  fi
+
+  # TODO: Try configure npm
 fi
 
-if [ "$_language" = "avr" ]
-then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                      Setting up AVR...                     ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                      Setting up AVR...                     ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
+echo "Configure AVR? (yes/empty)"
+read _avr;
+
+if [ "$_avr" != "" ]
+then
   pkg_add avrdude simulavr 
 fi
 
-if [ "$_language" = "gameboy" ]
-then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                    Setting up GameBoy...                   ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                    Setting up GameBoy...                   ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
+echo "Configure GameBoy? (yes/empty)"
+read _gb;
+
+if [ "$_gb" != "" ]
+then
   pkg_add rgbds
 fi
 
