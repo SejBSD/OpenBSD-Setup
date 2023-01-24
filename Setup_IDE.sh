@@ -374,17 +374,28 @@ then
   pkg_add go
 fi
 
-if [ "$_language" = "scala" ]
-then
-  echo ""
-  echo "################################################################"
-  echo "##                                                            ##"
-  echo "##                     Setting up Scala...                    ##"
-  echo "##                                                            ##"
-  echo "################################################################"
-  echo ""
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                     Setting up Scala...                    ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
 
+echo "Configure Scala? (yes/empty)"
+read _scala;
+
+if [ "$_scala" != "" ]
+then
   pkg_add scala
+  
+  echo "Choose IDE (intellij): (empty for none)"
+  read _ide;
+
+  if [ "$_ide" != "" ]
+  then
+    pkg_add $_ide
+  fi
 fi
 
 # TODO: Add Perl - pkg_add parrot
@@ -397,10 +408,10 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-echo "Configure phpMyAdmin? (yes/no)"
+echo "Configure phpMyAdmin? (yes/empty)"
 read _phpMyAdmin;
 
-if [ "$_phpMyAdmin" = "yes" ]
+if [ "$_phpMyAdmin" != "" ]
 then
   pkg_add phpmyadmin
 fi
@@ -413,10 +424,10 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-echo "Configure NGINX? (yes/no)"
+echo "Configure NGINX? (yes/empty)"
 read _nginx;
 
-if [ "$_nginx" = "yes" ]
+if [ "$_nginx" != "" ]
 then
   pkg_add nginx
 fi
@@ -429,10 +440,10 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-echo "Configure Apache HTTP Server? (yes/no)"
+echo "Configure Apache HTTP Server? (yes/empty)"
 read _apacheHttp;
 
-if [ "$_apacheHttp" = "yes" ]
+if [ "$_apacheHttp" != "" ]
 then
   pkg_add apache-httpd
 fi
