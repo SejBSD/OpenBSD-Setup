@@ -88,27 +88,13 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-echo "Currently there are a couple of supported Desktop Environments: (empty for none)"
-echo "  - gnome -> Full GNOME environment"
-echo "  - xfce -> lightweight desktop environment for UNIX-like operating systems"
-echo "  - kde -> Full KDE environment"
-echo "  - mate -> MATE desktop"
-echo "  - lxqt -> LXQt desktop"
-echo "  - openbox -> small, fast & usable window manager"
-echo "  - i3 -> improved dynamic tiling window manager"
-echo "  - awesome -> highly configurable framework window manager"
-echo "  - bspwm -> binary space partitioning window manager"
+echo "Configure GNOME? (yes/empty)"
+read _confGnome;
 
-echo "Which one: "
-read _desktopEnv;
-
-if [ "$_desktopEnv" != "" ]
+if [ "$_confGnome" != "" ]
 then
-    pkg_add $_desktopEnv
-fi
+    pkg_add gnome
 
-if [ "$_desktopEnv" = "gnome" ]
-then
     echo "# Added by OpenBSD-Setup script" >> _etcLoginConfPath
     echo "gnome:\\" >> _etcLoginConfPath
     echo "      :datasize-cur=1024M:\\" >> _etcLoginConfPath
@@ -128,18 +114,72 @@ then
 
     if [ "$_gnomeSoftware" != "" ]
     then
-        pkg_add gedit gnome-terminal nautilus baobab deja-dup terminator # TODO: Add GNOME-specific software from ports
+        # pkg_add gedit gnome-terminal nautilus baobab deja-dup terminator # TODO: Add GNOME-specific software from ports
     fi
 fi
 
-if [ "$_desktopEnv" = "kde" ]
+echo "Configure XFCE? (yes/empty)"
+read _confXfce;
+
+if [ "$_confXfce" != "" ]
 then
-    pkg_add plasma-framework
+    pkg_add xfce xfce4
 fi
 
-if [ "$_desktopEnv" = "xfce4" ]
+echo "Configure KDE? (yes/empty)"
+read _confKde;
+
+if [ "$_confKde" != "" ]
 then
-    pkg_add xfce4
+    pkg_add kde plasma-framework
+fi
+
+echo "Configure MATE? (yes/empty)"
+read _confMate;
+
+if [ "$_confMate" != "" ]
+then
+    pkg_add mate
+fi
+
+echo "Configure LXQt? (yes/empty)"
+read _confLxqt;
+
+if [ "$_confLxqt" != "" ]
+then
+    pkg_add lxqt
+fi
+
+echo "Configure OpenBox? (yes/empty)"
+read _confOpenBox;
+
+if [ "$_confOpenBox" != "" ]
+then
+    pkg_add openbox
+fi
+
+echo "Configure i3? (yes/empty)"
+read _confi3;
+
+if [ "$_confi3" != "" ]
+then
+    pkg_add i3
+fi
+
+echo "Configure awesome? (yes/empty)"
+read _confAwesome;
+
+if [ "$_confAwesome" != "" ]
+then
+    pkg_add awesome
+fi
+
+echo "Configure bspwm? (yes/empty)"
+read _confBspwm;
+
+if [ "$_confBspwm" != "" ]
+then
+    pkg_add bspwm
 fi
 
 echo ""
