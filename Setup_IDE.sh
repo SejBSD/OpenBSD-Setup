@@ -272,8 +272,30 @@ then
   then
     pkg_add $_ide
   fi
+  
+  echo "Update NPM? (yes/empty)"
+  read _updateNpm;
 
-  # TODO: Try configure npm
+  if [ "$_updateNpm" != "" ]
+  then
+    npm i -g npm
+  fi
+
+  echo "Configure Angular? (yes/empty)"
+  read _angular;
+
+  if [ "$_angular" != "" ]
+  then
+    npm i -g @angular/cli
+  fi
+
+  echo "Configure React/Redux? (yes/empty)"
+  read _react;
+
+  if [ "$_react" != "" ]
+  then
+    npm i -g create-react-app react redux react-redux
+  fi
 fi
 
 echo ""
