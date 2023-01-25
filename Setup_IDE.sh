@@ -64,9 +64,15 @@ then
   then
     pkg_add $_ide
   fi
-fi
 
-# TODO: Add common Python libs + tools
+  echo "Install Python Full (will install all packages with name 'py')? (yes/empty)"
+  read _full;
+
+  if [ "$_full" != "" ]
+  then
+    sh ./Internal_InstallMultiple.sh py
+  fi
+fi
 
 echo ""
 echo "################################################################"
@@ -114,6 +120,14 @@ read _rust;
 if [ "$_rust" != "" ]
 then
   pkg_add rust meson
+
+  echo "Install GDB support? (yes/empty)"
+  read _gdbSupport;
+
+  if [ "$_gdbSupport" != "" ]
+  then
+    pkg_add rust-gdb
+  fi
 fi
 
 echo ""
@@ -131,33 +145,28 @@ if [ "$_cpp" != "" ]
 then
   pkg_add cmake ninja meson llvm samurai
 
-  echo "Configure Qt6? (yes/empty)"
+  echo "Configure Qt6 (will install all packages with name 'qt6')? (yes/empty)"
   read _qt6;
   
   if [ "$_qt6" != "" ]
   then
-    pkg_add qt6 qt6-qt3d qt6-qt5compat qt6-qtcharts qt6-qtconnectivity qt6-qtdatavis3d qt6-qtimageformats qt6-qtlottie qt6-qtmultimedia \
-            qt6-qtnetworkauth qt6-qtpositioning qt6-qtquick3d qt6-qtquicktimeline qt6-qtremoteobjects qt6-qtscxml qt6-qtsensors qt6-qtserialbus \
-            qt6-qtserialport qt6-qtshadertools qt6-qtsvg qt6-qttools qt6-qttranslations qt6-qtvirtualkeyboard qt6-qtwayland
+    sh ./Internal_InstallMultiple.sh qt6
   fi
 
-  echo "Configure Qt5? (yes/empty)"
+  echo "Configure Qt5 (will install all packages with name 'qt5')? (yes/empty)"
   read _qt5;
   
   if [ "$_qt5" != "" ]
   then
-    pkg_add qt5
+    sh ./Internal_InstallMultiple.sh qt5
   fi
 
-  echo "Configure Qt Current? (yes/empty)"
+  echo "Configure Qt Full (will install all packages with name 'qt')? (yes/empty)"
   read _qtCurrent;
   
   if [ "$_qtCurrent" != "" ]
   then
-    pkg_add qt3d qtbase qtcharts qtconnectivity qtdatavis3d qtdeclarative qtgamepad qtgraphicaleffects qtimageformats qtlocation qtlottie \
-            qtmultimedia qtnetworkauth qtpurchasing qtquickcontrols qtquickcontrols2 qtremoteobjects qtscript qtscxml qtsensors qtserialbus \
-            qtserialport qtspeech qtsvg qttools qttranslations qtvirtualkeyboard qtwayland qtwebchannel qtwebengine qtwebglplugin qtwebkit \
-            qtwebsockets qtwebview qtx11extras qtxmlpatterns
+    sh ./Internal_InstallMultiple.sh qt
   fi
   
   echo "Configure GCC? (yes/empty)"
@@ -215,6 +224,14 @@ read _lua;
 if [ "$_lua" != "" ]
 then
   pkg_add lua
+
+  echo "Install Lua Full (will install all packages with name 'lua')? (yes/empty)"
+  read _full;
+
+  if [ "$_full" != "" ]
+  then
+    sh ./Internal_InstallMultiple.sh lua
+  fi
 fi
 
 echo ""
@@ -304,7 +321,7 @@ read _sdl2;
 
 if [ "$_sdl2" != "" ]
 then
-  pkg_add sdl2 sdl2-ttf sdl2-net sdl2-mixer sdl2-image sdl2-gfx
+  sh ./Internal_InstallMultiple.sh sdl2
 fi
 
 echo ""
@@ -336,7 +353,7 @@ read _prolog;
 
 if [ "$_prolog" != "" ]
 then
-  pkg_add swi-prolog gprolog
+  sh ./Internal_InstallMultiple.sh prolog
 fi
 
 echo ""
@@ -368,7 +385,7 @@ read _cobol;
 
 if [ "$_cobol" != "" ]
 then
-  pkg_add gnucobol
+  sh ./Internal_InstallMultiple.sh cobol
 fi
 
 echo ""
@@ -412,3 +429,42 @@ then
 fi
 
 # TODO: Add Perl - pkg_add parrot
+
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                     Setting up Perl...                     ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
+
+echo "Configure Perl? (yes/empty)"
+read _perl;
+
+if [ "$_perl" != "" ]
+then
+  echo "Choose IDE (intellij, pycharm): (empty for none)"
+  read _ide;
+
+  if [ "$_ide" != "" ]
+  then
+    pkg_add $_ide
+  fi
+
+  echo "Install Perl VM (parrot)? (yes/empty)"
+  read _vm;
+
+  if [ "$_vm" != "" ]
+  then
+    pkg_add parrot
+  fi
+
+  echo "Install Perl Full (will install all packages with name 'p5', 'perl')? (yes/empty)"
+  read _full;
+
+  if [ "$_full" != "" ]
+  then
+    sh ./Internal_InstallMultiple.sh p5
+    sh ./Internal_InstallMultiple.sh perl
+  fi
+fi
