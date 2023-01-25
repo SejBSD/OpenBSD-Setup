@@ -216,6 +216,22 @@ then
     then
         pkg_add gitg
     fi
+
+    echo "Configure GNOME gjs (Javascript bindings for GNOME))? (yes/empty)"
+    read _confGnomeGjs;
+
+    if [ "$_confGnomeGjs" != "" ]
+    then
+        pkg_add gjs
+    fi
+
+    echo "Configure GNOME gom (GObject to SQLite object mapper))? (yes/empty)"
+    read _confGnomeGom;
+
+    if [ "$_confGnomeGom" != "" ]
+    then
+        pkg_add gom
+    fi
 fi
 
 echo "Configure XFCE? (yes/empty)"
