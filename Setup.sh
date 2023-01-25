@@ -194,11 +194,27 @@ then
     fi
 
     echo "Configure GNOME Gtk Frameworks (misc)? (yes/empty)"
-    read _confGnomeCrypto;
+    read _confGnomeGtk;
 
-    if [ "$_confGnomeCrypto" != "" ]
+    if [ "$_confGnomeGtk" != "" ]
     then
         pkg_add amtk gnome-epub-thumbnailer gdl tepl
+    fi
+
+    echo "Configure GNOME Mutter (window and compositing manager based on Clutter)? (yes/empty)"
+    read _confGnomeMutter;
+
+    if [ "$_confGnomeMutter" != "" ]
+    then
+        pkg_add mutter
+    fi
+
+    echo "Configure GNOME gitg (graphical user interface for git)? (yes/empty)"
+    read _confGnomeGitg;
+
+    if [ "$_confGnomeGitg" != "" ]
+    then
+        pkg_add gitg
     fi
 fi
 
