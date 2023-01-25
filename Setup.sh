@@ -176,6 +176,22 @@ then
     then
         pkg_add gnome-devel-docs devhelp gnome-user-docs yelp yelp-tools yelp-xsl
     fi
+
+    echo "Configure GNOME AT-SPI Utils? (yes/empty)"
+    read _confGnomeAtSpi;
+
+    if [ "$_confGnomeAtSpi" != "" ]
+    then
+        pkg_add accerciser at-spi2-core py-atspi
+    fi
+
+    echo "Configure GNOME Crypto Utils? (yes/empty)"
+    read _confGnomeCrypto;
+
+    if [ "$_confGnomeCrypto" != "" ]
+    then
+        pkg_add gcr gcr4 seahorse seahorse-nautilus 
+    fi
 fi
 
 echo "Configure XFCE? (yes/empty)"
