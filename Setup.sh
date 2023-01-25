@@ -93,7 +93,9 @@ read _confGnome;
 
 if [ "$_confGnome" != "" ]
 then
-    pkg_add gnome
+    pkg_add gnome gnome-tour gnome-initial-setup gnome-keyring gnome-menus gnome-screenshot gnome-session gnome-settings-daemon gnome-tweaks \
+            gnome-usage gnome-control-center endeavor gdm nautilus gnome-power-manager sushi gnome-system-monitor gnome-terminal gnome-console \
+            baobab
 
     echo "# Added by OpenBSD-Setup script" >> _etcLoginConfPath
     echo "gnome:\\" >> _etcLoginConfPath
@@ -109,12 +111,70 @@ then
     rcctl disable xenodm
     rcctl enable multicast messagebus avahi_daemon gdm
 
-    echo "Add GNOME software? (yes/empty)"
-    read _gnomeSoftware;
+    echo "Configure GNOME Games? (yes/empty)"
+    read _confGnomeGames;
 
-    if [ "$_gnomeSoftware" != "" ]
+    if [ "$_confGnomeGames" != "" ]
     then
-        # pkg_add gedit gnome-terminal nautilus baobab deja-dup terminator # TODO: Add GNOME-specific software from ports
+        pkg_add aisleriot gnome-mahjongg quadrapassel
+    fi
+
+    echo "Configure GNOME Icons and Backgrounds? (yes/empty)"
+    read _confGnomeIandB;
+
+    if [ "$_confGnomeIandB" != "" ]
+    then
+        pkg_add adwaita-icon-theme gnome-backgrounds
+    fi
+
+    echo "Configure GNOME Shell + Extensions? (yes/empty)"
+    read _confGnomeShell;
+
+    if [ "$_confGnomeShell" != "" ]
+    then
+        pkg_add gnome-browser-connector gnome-shell gnome-shell-extensions
+    fi
+
+    echo "Configure GNOME Archive Utils? (yes/empty)"
+    read _confGnomeArchive;
+
+    if [ "$_confGnomeArchive" != "" ]
+    then
+        pkg_add gnome-autoar file-roller
+    fi
+
+    echo "Configure GNOME Desktop Utils? (yes/empty)"
+    read _confGnomeDesktop;
+
+    if [ "$_confGnomeDesktop" != "" ]
+    then
+        pkg_add gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts dconf-editor gnome-desktop gnome-dictionary \
+                gnome-font-viewer gedit gedit-plugins ghex gucharmap gnome-maps secrets totem totem-pl-parser tracker3 tracker3-miners \
+                gnome-weather gnome-notes orca gnome-text-editor gnome-builder
+    fi
+
+    echo "Configure GNOME Multimedia? (yes/empty)"
+    read _confGnomeMultimedia;
+
+    if [ "$_confGnomeMultimedia" != "" ]
+    then
+        pkg_add cheese eog eog-plugins grilo grilo-plugins gnome-music gnome-photos gnome-video-effects
+    fi
+
+    echo "Configure GNOME Online Utils? (yes/empty)"
+    read _confGnomeOnline;
+
+    if [ "$_confGnomeOnline" != "" ]
+    then
+        pkg_add gnome-connections gnome-online-accounts polari vino gvfs
+    fi
+
+    echo "Configure GNOME Documentation? (yes/empty)"
+    read _confGnomeDocs;
+
+    if [ "$_confGnomeDocs" != "" ]
+    then
+        pkg_add gnome-devel-docs devhelp gnome-user-docs yelp yelp-tools yelp-xsl
     fi
 fi
 
