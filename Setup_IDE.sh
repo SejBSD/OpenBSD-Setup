@@ -428,8 +428,6 @@ then
   fi
 fi
 
-# TODO: Add Perl - pkg_add parrot
-
 echo ""
 echo "################################################################"
 echo "##                                                            ##"
