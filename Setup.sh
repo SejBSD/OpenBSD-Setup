@@ -192,6 +192,14 @@ then
     then
         pkg_add gcr gcr4 seahorse seahorse-nautilus 
     fi
+
+    echo "Configure GNOME Gtk Frameworks (misc)? (yes/empty)"
+    read _confGnomeCrypto;
+
+    if [ "$_confGnomeCrypto" != "" ]
+    then
+        pkg_add amtk gnome-epub-thumbnailer gdl tepl
+    fi
 fi
 
 echo "Configure XFCE? (yes/empty)"
