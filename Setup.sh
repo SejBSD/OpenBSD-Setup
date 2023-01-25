@@ -240,6 +240,11 @@ read _confXfce;
 if [ "$_confXfce" != "" ]
 then
     pkg_add xfce xfce4
+
+    sh ./Internal_InstallMultiple.sh xfce
+
+    pkg_add exo garcon mousepad orage parole ristretto xfce4-terminal thunar thunar-archive thunar-media-tags thunar-vcs tumbler xfconf \
+            xfdashboard xfdesktop xfmpc xfwm4 xfwm4-themes
 fi
 
 echo "Configure KDE? (yes/empty)"
