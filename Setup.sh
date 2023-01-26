@@ -253,6 +253,15 @@ read _confKde;
 if [ "$_confKde" != "" ]
 then
     pkg_add kde plasma-framework
+
+    sh ./Internal_InstallMultiple.sh kf5
+
+    pkg_add bluez-qt breeze-icons extra-cmake-modules frameworkintegration kactivities-stats kapidox karchive kauth kbookmarks kcalendarcore \
+            kcmutils kcodecs kcompletion kconfig kconfigwidgets kcontacts kcoreaddons kcrash kdav kdbusaddons kdeclarative kded kdesignerplugin \
+            kdesu kdewebkit kdnssd kdoctools kemoticons kfilemetadata kglobalaccel kguiaddons kholidays khtml ki18n kiconthemes kidletime \
+            kimageformats kinit kio kitemmodels kitemviews kjobwidgets kmediaplayer knewstuff knotifications knotifyconfig kpackage kparts kpeople \
+            kplotting kpty kquickcharts kross krunner kservice ktexteditor ktextwidgets kunitconversion kwayland kwidgetsaddons kwindowsystem kxmlgui \
+            kxmlrpcclient oxygen-icons purpose solid sonnet syndication syntax-highlighting threadweaver
 fi
 
 echo "Configure MATE? (yes/empty)"
