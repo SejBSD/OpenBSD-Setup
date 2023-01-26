@@ -217,7 +217,7 @@ then
         pkg_add gitg
     fi
 
-    echo "Configure GNOME gjs (Javascript bindings for GNOME))? (yes/empty)"
+    echo "Configure GNOME gjs (Javascript bindings for GNOME)? (yes/empty)"
     read _confGnomeGjs;
 
     if [ "$_confGnomeGjs" != "" ]
@@ -225,7 +225,7 @@ then
         pkg_add gjs
     fi
 
-    echo "Configure GNOME gom (GObject to SQLite object mapper))? (yes/empty)"
+    echo "Configure GNOME gom (GObject to SQLite object mapper)? (yes/empty)"
     read _confGnomeGom;
 
     if [ "$_confGnomeGom" != "" ]
@@ -262,6 +262,22 @@ then
             kimageformats kinit kio kitemmodels kitemviews kjobwidgets kmediaplayer knewstuff knotifications knotifyconfig kpackage kparts kpeople \
             kplotting kpty kquickcharts kross krunner kservice ktexteditor ktextwidgets kunitconversion kwayland kwidgetsaddons kwindowsystem kxmlgui \
             kxmlrpcclient oxygen-icons purpose solid sonnet syndication syntax-highlighting threadweaver
+
+    echo "Configure KDE Legacy Support (legacy support for kdelibs-4.x compatibility)? (yes/empty)"
+    read _confKdeLegacy;
+
+    if [ "$_confKdeLegacy" != "" ]
+    then
+        pkg_add kdelibs4support
+    fi
+
+    echo "Configure KDE kjs (JavaScript/ECMAScript engine for KDE and KDE framework for binding JavaScript object to QObjects)? (yes/empty)"
+    read _confKdeKjs;
+
+    if [ "$_confKdeKjs" != "" ]
+    then
+        pkg_add kjs kjsembed
+    fi
 fi
 
 echo "Configure MATE? (yes/empty)"
