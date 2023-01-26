@@ -278,6 +278,8 @@ then
     then
         pkg_add kjs kjsembed
     fi
+
+    # TODO: Add KDE Applications -> https://openports.se/x11/kde-applications
 fi
 
 echo "Configure MATE? (yes/empty)"
@@ -336,12 +338,30 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-echo "Install core tools (nano, htop, neofetch, usbutils, dmidecode, ddrescue, llama, ksnip, dbus)? (yes/no): "
-read _shouldInstallCoreTools;
+echo "Install AppManager - graphical interface for the OpenBSD package manager? (yes/empty)"
+read _appManager;
 
-if [ "$_shouldInstallCoreTools" = "yes" ]
+if [ "$_appManager" != "" ]
 then
-    pkg_add nano htop neofetch usbutils dmidecode ddrescue llama ksnip dbus
+    pkg_add appmanager
+fi
+
+echo "Install Web Browser (firefox/chromium/ungoogled-chromium/tor-browser)? (empty for chromium)"
+read _webBrowser;
+
+if [ "$_webBrowser" != "" ]
+then
+    pkg_add $_webBrowser
+else
+    pkg_add chromium
+fi
+
+echo "Install and configure neofetch (system information tool written in bash)? (yes/empty)"
+read _neofetch;
+
+if [ "$_neofetch" != "" ]
+then
+    pkg_add neofetch
 
     if [ "$_user" != "" ]
     then
@@ -354,132 +374,141 @@ then
     fi
 fi
 
-echo "Install common tools (flameshot, dconf-editor, inkscape, Virtual Machine Manager (virt-manager), QEMU, remotebox, virt-viewer, freerdp, deluge, httrack)? (yes/no)"
-read _shouldInstallCommonTools;
+echo "Install flameshot (powerful yet simple to use screenshot software)? (yes/empty)"
+read _flameshot;
 
-if [ "$_shouldInstallCommonTools" = "yes" ]
+if [ "$_flameshot" != "" ]
 then
-    pkg_add flameshot dconf-editor inkscape virt-manager qemu remotebox virt-viewer freerdp deluge httrack
+    pkg_add flameshot
 fi
 
-echo "Install Web Browser (firefox/chromium/ungoogled-chromium/tor-browser)? (empty for none)"
-read _webBrowser;
+echo "Install VM tools (Virtual Machine Manager (virt-manager), QEMU, remotebox, virt-viewer, freerdp)? (yes/empty)"
+read _virt;
 
-if [ "$_webBrowser" != "" ]
+if [ "$_virt" != "" ]
 then
-    pkg_add $_webBrowser
+    pkg_add virt-manager qemu remotebox virt-viewer freerdp
 fi
 
-echo "Install AppManager - graphical interface for the OpenBSD package manager? (yes/no)"
-read _appManager;
+echo "Install Deluge (bittorrent client)? (yes/empty)"
+read _deluge;
 
-if [ "$_appManager" = "yes" ]
+if [ "$_deluge" != "" ]
 then
-    pkg_add appmanager
+    pkg_add deluge
 fi
 
-echo "Configure Cloud Tools (AWS, Kubernetes, GCloud, etc.)? (yes/no)"
+echo "Install Cloud Tools (awscli, cloud-agent, google-cloud-sdk, packer)? (yes/empty)"
 read _cloudTools;
 
-if [ "$_cloudTools" = "yes" ]
+if [ "$_cloudTools" != "" ]
 then
     pkg_add awscli cloud-agent google-cloud-sdk packer
 fi
 
-echo "Configure FUSE/FS? (yes/no)"
+echo "Install FUSE/FS (curlftpfs, dosfstools, e2fsprogs, exfat-fuse, mtools, ntfs-3g, squashfs-tools, sshfs-fuse, fuse-zip, encfs)? (yes/empty)"
 read _fuse;
 
-if [ "$_fuse" = "yes" ]
+if [ "$_fuse" != "" ]
 then
     pkg_add curlftpfs dosfstools e2fsprogs exfat-fuse mtools ntfs-3g squashfs-tools sshfs-fuse fuse-zip encfs
 fi
 
-echo "Configure Converters? (yes/no)"
+echo "Install Converters (bchunk)? (yes/empty)"
 read _conv;
 
-if [ "$_conv" = "yes" ]
+if [ "$_conv" != "" ]
 then
     pkg_add bchunk
 fi
 
-echo "Configure Reverse Engineering Tools? (yes/no)"
+echo "Install Reverse Engineering Tools (rizin, binwalk, ghidra)? (yes/empty)"
 read _revEng;
 
-if [ "$_revEng" = "yes" ]
+if [ "$_revEng" != "" ]
 then
     pkg_add rizin binwalk ghidra
 fi
 
-echo "Configure Containers? (yes/no)"
+echo "Install Containers? (yes/empty)"
 read _containers;
 
-if [ "$_containers" = "yes" ]
+if [ "$_containers" != "" ]
 then
     pkg_add docker-cli kubectl oc serf terraform jailkit
 fi
 
-echo "Configure PCB/Modeling-related tools? (yes/no)"
+echo "Install PCB/Modeling-related tools (kicad, lepton-eda, librecad, oce, openscad, pcb2gcode, qcad)? (yes/empty)"
 read _pcb;
 
-if [ "$_pcb" = "yes" ]
+if [ "$_pcb" != "" ]
 then
     pkg_add kicad lepton-eda librecad oce openscad pcb2gcode qcad
 fi
 
-echo "Configure productivity tools? (yes/no)"
+echo "Install productivity tools (kicad, projectlibre, impressive, gnucash, gnucash-docs)? (yes/empty)"
 read _pcb;
 
-if [ "$_pcb" = "yes" ]
+if [ "$_pcb" != "" ]
 then
     pkg_add kicad projectlibre impressive gnucash gnucash-docs
 fi
 
-echo "Choose editor: zile, texworks, teaqt, qscintilla, poke, neovim-qt, libreoffice, leafpad, hexedit, hexcurse, focuswriter, featherpad, emacs, abiword - empty for none"
-read _editor;
+echo "Install LibreOffice (multi-platform productivity suite)? (yes/empty)"
+read _libreoffice;
 
-if [ "$_editor" != "" ]
+if [ "$_libreoffice" != "" ]
 then
-    pkg_add $_editor
+    pkg_add libreoffice
 fi
 
-echo "Configure archive-related tools? (yes/no)"
-read _archive;
 
-if [ "$_archive" = "yes" ]
-then
-    pkg_add zstd zip xz unzip unrar unarr unarj snappy sltar rzip quazip p7zip minizip lzop lz4 lzo2 lrzip deco bzip2 arc
-fi
 
-echo "Configure multimedia-related tools? (yes/no)"
-read _multimedia;
 
-if [ "$_multimedia" = "yes" ]
-then
-    pkg_add lmms shotcut vlc krita krita-gmic-plugin inkscape ffmpeg sk1 pixelorama gimp audacious opencv openbsd-backgrounds ocrad mypaint mypaint-brushes mypaint-brushes2 img2pdf ImageMagick GraphicsMagick gif2png flameshot darktable cadubi audacious-player ncspot lmms openal rhythmbox freealut flac audacity alac_decoder celt gsm libvorbis mac opencore-amr opus speex wavpack
-fi
+# echo "Choose editor: zile, texworks, teaqt, qscintilla, poke, neovim-qt, libreoffice, leafpad, hexedit, hexcurse, focuswriter, featherpad, emacs, abiword - empty for none"
+# read _editor;
 
-echo "Configure printer tools? (yes/no)"
-read _printer;
+# if [ "$_editor" != "" ]
+# then
+#     pkg_add $_editor
+# fi
 
-if [ "$_printer" = "yes" ]
-then
-    pkg_add brlaser cups-pk-helper cups-bjnp cups cups-filters cups-pdf foomatic-db foomatic-db-engine foo2zjs gtklp gutenprint hplip htmldoc ocrmypdf pdfarranger printrun poppler psutils ptouch-driver qpdf scribus splix system-config-printer unpaper simple-scan
-fi
+# echo "Install archive-related tools? (yes/empty)"
+# read _archive;
 
-echo "Configure Vulkan/OpenGL tools? (yes/no)"
-read _vulkan;
+# if [ "$_archive" != "" ]
+# then
+#     pkg_add zstd zip xz unzip unrar unarr unarj snappy sltar rzip quazip p7zip minizip lzop lz4 lzo2 lrzip deco bzip2 arc
+# fi
 
-if [ "$_vulkan" = "yes" ]
-then
-    pkg_add vulkan-tools vulkan-loader vulkan-headers glfw glew gle freeglut
-fi
+# echo "Install multimedia-related tools? (yes/empty)"
+# read _multimedia;
 
-echo "Configure Security/Pentesting tools? (yes/no)"
-read _security;
+# if [ "$_multimedia" != "" ]
+# then
+#     pkg_add lmms shotcut vlc krita krita-gmic-plugin inkscape ffmpeg sk1 pixelorama gimp audacious opencv openbsd-backgrounds ocrad mypaint mypaint-brushes mypaint-brushes2 img2pdf ImageMagick GraphicsMagick gif2png flameshot darktable cadubi audacious-player ncspot lmms openal rhythmbox freealut flac audacity alac_decoder celt gsm libvorbis mac opencore-amr opus speex wavpack
+# fi
 
-if [ "$_security" = "yes" ]
-then
-    pkg_add pixiewps pgpdump pdfid pdfcrack pdf-parser osv-scanner lynis knockpy john john-jumbo isic ipguard integrit hydra gnutls fwbuilder fcrackzip exploitdb dsniff dirb cracklib clamav burpsuite amap aircrack-ng aide regripper reaver rdp rarcrack wpa_supplicant tls-attacker step-cli sqlmap pwntools
-fi
+# echo "Install printer tools? (yes/empty)"
+# read _printer;
 
-# TODO: Organize tools
+# if [ "$_printer" != "" ]
+# then
+#     pkg_add brlaser cups-pk-helper cups-bjnp cups cups-filters cups-pdf foomatic-db foomatic-db-engine foo2zjs gtklp gutenprint hplip htmldoc ocrmypdf pdfarranger printrun poppler psutils ptouch-driver qpdf scribus splix system-config-printer unpaper simple-scan
+# fi
+
+# echo "Install Vulkan/OpenGL tools? (yes/empty)"
+# read _vulkan;
+
+# if [ "$_vulkan" != "" ]
+# then
+#     pkg_add vulkan-tools vulkan-loader vulkan-headers glfw glew gle freeglut
+# fi
+
+# echo "Install Security/Pentesting tools? (yes/empty)"
+# read _security;
+
+# if [ "$_security" != "" ]
+# then
+#     pkg_add pixiewps pgpdump pdfid pdfcrack pdf-parser osv-scanner lynis knockpy john john-jumbo isic ipguard integrit hydra gnutls fwbuilder fcrackzip exploitdb dsniff dirb cracklib clamav burpsuite amap aircrack-ng aide regripper reaver rdp rarcrack wpa_supplicant tls-attacker step-cli sqlmap pwntools
+# fi
