@@ -97,10 +97,10 @@ then
     pkg_add $_ide
   fi
   
-  echo "Install Android tools? (yes/no)"
+  echo "Install Android tools? (yes/empty)"
   read _android;
   
-  if [ "$_android" = "yes" ]
+  if [ "$_android" != "" ]
   then
     pkg_add jadx adb apktool
   fi
