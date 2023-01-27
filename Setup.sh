@@ -265,7 +265,7 @@ then
 
     pkg_add konqueror konsole korganizer kate grantleetheme ark knotes lokalize okular print-manager khelpcenter kget kcharselect kbackup kamera \
             filelight ark kwalletmanager signon-kwallet-extension kio-gdrive kio-extras kfind kdf kcalc eventviews kalarm krdc krfb ksystemlog \
-            kteatime ktimer markdownpart sweeper kldap kcachegrind ksanecore kopeninghours
+            kteatime ktimer markdownpart sweeper kldap kcachegrind ksanecore kopeninghours kmousetool kleopatra kgpg kfloppy
 
     echo "Configure KDE Legacy Support (legacy support for kdelibs-4.x compatibility)? (yes/empty)"
     read _confKdeLegacy;
@@ -309,7 +309,8 @@ then
     then
         pkg_add kmime kmbox kmailtransport kmail-account-wizard kmail kimap kidentitymanagement keditbookmarks kdepim-addons kcalutils kaddressbook \
                 kaccounts-providers kaccounts-integration incidenceeditor grantlee-editor calendarsupport kontact kontactinterface korganizer \
-                kpimtextedit kpkpass ksmtp ktnef mailcommon mailimporter mbox-importer messagelib pim-data-exporter pim-sieve-editor pimcommon poxml
+                kpimtextedit kpkpass ksmtp ktnef mailcommon mailimporter mbox-importer messagelib pim-data-exporter pim-sieve-editor pimcommon poxml \
+                kblog
 
         sh ./Internal_InstallMultiple.sh akonadi
     fi
@@ -353,6 +354,14 @@ then
     if [ "$_confKdeUmbrello" != "" ]
     then
         pkg_add umbrello
+    fi
+
+    echo "Configure KDE Development Tools? (yes/empty)"
+    read _confKdeDev;
+
+    if [ "$_confKdeDev" != "" ]
+    then
+        pkg_add kdevelop kdialog kdesdk-thumbnailers kdebugsettings kde-dev-utils kde-dev-scripts kapptemplate
     fi
 fi
 
