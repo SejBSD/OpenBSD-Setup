@@ -264,7 +264,8 @@ then
             kxmlrpcclient oxygen-icons purpose solid sonnet syndication syntax-highlighting threadweaver
 
     pkg_add konqueror konsole korganizer kate grantleetheme ark knotes lokalize okular print-manager khelpcenter kget kcharselect kbackup kamera \
-            filelight ark kwalletmanager signon-kwallet-extension kio-gdrive kio-extras kfind kdf kcalc eventviews
+            filelight ark kwalletmanager signon-kwallet-extension kio-gdrive kio-extras kfind kdf kcalc eventviews kalarm krdc krfb ksystemlog \
+            kteatime ktimer markdownpart sweeper
 
     echo "Configure KDE Legacy Support (legacy support for kdelibs-4.x compatibility)? (yes/empty)"
     read _confKdeLegacy;
@@ -299,6 +300,16 @@ then
     then
         pkg_add kolourpaint kontrast kruler spectacle svgpart kmix kmag kimagemapeditor kdenlive kcolorchooser juk gwenview elisa dragon kipi-plugins \
                 kbruch
+    fi
+
+    echo "Configure KDE Office Tools? (yes/empty)"
+    read _confKdeOffice;
+
+    if [ "$_confKdeOffice" != "" ]
+    then
+        pkg_add kmime kmbox kmailtransport kmail-account-wizard kmail kimap kidentitymanagement keditbookmarks kdepim-addons kcalutils kaddressbook \
+                kaccounts-providers kaccounts-integration incidenceeditor grantlee-editor calendarsupport akonadi kontact kontactinterface korganizer \
+                kpimtextedit kpkpass ksmtp ktnef mailcommon mailimporter mbox-importer messagelib pim-data-exporter pim-sieve-editor pimcommon poxml
     fi
 
     echo "Configure KDE Learning? (yes/empty)"
