@@ -265,7 +265,7 @@ then
 
     pkg_add konqueror konsole korganizer kate grantleetheme ark knotes lokalize okular print-manager khelpcenter kget kcharselect kbackup kamera \
             filelight ark kwalletmanager signon-kwallet-extension kio-gdrive kio-extras kfind kdf kcalc eventviews kalarm krdc krfb ksystemlog \
-            kteatime ktimer markdownpart sweeper kldap kcachegrind
+            kteatime ktimer markdownpart sweeper kldap kcachegrind ksanecore kopeninghours
 
     echo "Configure KDE Legacy Support (legacy support for kdelibs-4.x compatibility)? (yes/empty)"
     read _confKdeLegacy;
@@ -319,7 +319,8 @@ then
 
     if [ "$_confKdeLearning" != "" ]
     then
-        pkg_add ktouch kturtle minuet klettres kiten kgeography kdeedu-data kalzium cantor artikulate analitza kmplot kwordquiz rocs step kig kalgebra
+        pkg_add ktouch kturtle minuet klettres kiten kgeography kdeedu-data kalzium cantor artikulate analitza kmplot kwordquiz rocs step kig kalgebra \
+                kqtquickcharts
     fi
 
     echo "Configure KDE Hex Editor? (yes/empty)"
@@ -335,7 +336,7 @@ then
 
     if [ "$_confKdeFileUtils" != "" ]
     then
-        pkg_add kompare konqueror 
+        pkg_add kompare konqueror
     fi
 
     echo "Configure KDE Cervisia (VCS - cvs and git - GUI for KDE)? (yes/empty)"
@@ -344,6 +345,14 @@ then
     if [ "$_confKdeCervisia" != "" ]
     then
         pkg_add cervisia
+    fi
+
+    echo "Configure KDE Umbrello (UML Modeller)? (yes/empty)"
+    read _confKdeUmbrello;
+
+    if [ "$_confKdeUmbrello" != "" ]
+    then
+        pkg_add umbrello
     fi
 fi
 
