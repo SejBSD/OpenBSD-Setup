@@ -265,7 +265,7 @@ then
 
     pkg_add konqueror konsole korganizer kate grantleetheme ark knotes lokalize okular print-manager khelpcenter kget kcharselect kbackup kamera \
             filelight ark kwalletmanager signon-kwallet-extension kio-gdrive kio-extras kfind kdf kcalc eventviews kalarm krdc krfb ksystemlog \
-            kteatime ktimer markdownpart sweeper
+            kteatime ktimer markdownpart sweeper kldap kcachegrind
 
     echo "Configure KDE Legacy Support (legacy support for kdelibs-4.x compatibility)? (yes/empty)"
     read _confKdeLegacy;
@@ -308,8 +308,10 @@ then
     if [ "$_confKdeOffice" != "" ]
     then
         pkg_add kmime kmbox kmailtransport kmail-account-wizard kmail kimap kidentitymanagement keditbookmarks kdepim-addons kcalutils kaddressbook \
-                kaccounts-providers kaccounts-integration incidenceeditor grantlee-editor calendarsupport akonadi kontact kontactinterface korganizer \
+                kaccounts-providers kaccounts-integration incidenceeditor grantlee-editor calendarsupport kontact kontactinterface korganizer \
                 kpimtextedit kpkpass ksmtp ktnef mailcommon mailimporter mbox-importer messagelib pim-data-exporter pim-sieve-editor pimcommon poxml
+
+        sh ./Internal_InstallMultiple.sh akonadi
     fi
 
     echo "Configure KDE Learning? (yes/empty)"
