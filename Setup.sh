@@ -321,7 +321,7 @@ then
     if [ "$_confKdeLearning" != "" ]
     then
         pkg_add ktouch kturtle minuet klettres kiten kgeography kdeedu-data kalzium cantor artikulate analitza kmplot kwordquiz rocs step kig kalgebra \
-                kqtquickcharts
+                kqtquickcharts kitinerary
     fi
 
     echo "Configure KDE Hex Editor? (yes/empty)"
@@ -362,6 +362,14 @@ then
     if [ "$_confKdeDev" != "" ]
     then
         pkg_add kdevelop kdialog kdesdk-thumbnailers kdebugsettings kde-dev-utils kde-dev-scripts kapptemplate
+    fi
+
+    echo "Configure KDE Akregator (news feed reader)? (yes/empty)"
+    read _confKdeNewsReader;
+
+    if [ "$_confKdeNewsReader" != "" ]
+    then
+        pkg_add akregator kmouth
     fi
 fi
 
