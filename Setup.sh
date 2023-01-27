@@ -263,6 +263,8 @@ then
             kplotting kpty kquickcharts kross krunner kservice ktexteditor ktextwidgets kunitconversion kwayland kwidgetsaddons kwindowsystem kxmlgui \
             kxmlrpcclient oxygen-icons purpose solid sonnet syndication syntax-highlighting threadweaver
 
+    pkg_add konqueror konsole korganizer kate grantleetheme ark knotes
+
     echo "Configure KDE Legacy Support (legacy support for kdelibs-4.x compatibility)? (yes/empty)"
     read _confKdeLegacy;
 
@@ -279,7 +281,23 @@ then
         pkg_add kjs kjsembed
     fi
 
-    # TODO: Add KDE Applications -> https://openports.se/x11/kde-applications
+    echo "Configure KDE Games? (yes/empty)"
+    read _confKdeGames;
+
+    if [ "$_confKdeGames" != "" ]
+    then
+        pkg_add konquest kreversi kshisen ksirk ksnakeduel kspaceduel ksquares ksudoku ktuberling kubrick palapeli picmi blinken bomber bovo granatier \
+                kajongg kanagram kapman katomic kblackbox kblocks kbounce kbreakout kdiamond kfourinline kgoldrunner khangman kigo killbots kiriki \
+                kjumpingcube klettres klickety klines kmahjongg kmines knavalbattle knetwalk kolf kollision
+    fi
+
+    echo "Configure KDE Multimedia? (yes/empty)"
+    read _confKdeMultimedia;
+
+    if [ "$_confKdeMultimedia" != "" ]
+    then
+        pkg_add kolourpaint kontrast kruler spectacle svgpart kmix kmag kimagemapeditor kdenlive kcolorchooser juk gwenview elisa dragon
+    fi
 fi
 
 echo "Configure MATE? (yes/empty)"
@@ -461,6 +479,10 @@ if [ "$_libreoffice" != "" ]
 then
     pkg_add libreoffice
 fi
+
+
+# TODO: Finish - maybe add hexedit
+
 
 
 
