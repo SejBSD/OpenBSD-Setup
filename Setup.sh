@@ -553,9 +553,21 @@ then
     pkg_add libreoffice
 fi
 
-# inkscape
+echo "Install Inkscape (SVG vector drawing application)? (yes/empty)"
+read _inkscape;
 
-# vlc
+if [ "$_inkscape" != "" ]
+then
+    pkg_add inkscape
+fi
+
+echo "Install VLC (VideoLAN client; multimedia player)? (yes/empty)"
+read _vlc;
+
+if [ "$_vlc" != "" ]
+then
+    pkg_add vlc
+fi
 
 
 # TODO: Finish - maybe add hexedit
