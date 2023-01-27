@@ -264,7 +264,7 @@ then
             kxmlrpcclient oxygen-icons purpose solid sonnet syndication syntax-highlighting threadweaver
 
     pkg_add konqueror konsole korganizer kate grantleetheme ark knotes lokalize okular print-manager khelpcenter kget kcharselect kbackup kamera \
-            filelight ark
+            filelight ark kwalletmanager signon-kwallet-extension kio-gdrive kio-extras kfind kdf kcalc eventviews
 
     echo "Configure KDE Legacy Support (legacy support for kdelibs-4.x compatibility)? (yes/empty)"
     read _confKdeLegacy;
@@ -297,7 +297,8 @@ then
 
     if [ "$_confKdeMultimedia" != "" ]
     then
-        pkg_add kolourpaint kontrast kruler spectacle svgpart kmix kmag kimagemapeditor kdenlive kcolorchooser juk gwenview elisa dragon
+        pkg_add kolourpaint kontrast kruler spectacle svgpart kmix kmag kimagemapeditor kdenlive kcolorchooser juk gwenview elisa dragon kipi-plugins \
+                kbruch
     fi
 
     echo "Configure KDE Learning? (yes/empty)"
@@ -305,7 +306,31 @@ then
 
     if [ "$_confKdeLearning" != "" ]
     then
-        pkg_add ktouch kturtle minuet klettres kiten kgeography kdeedu-data kalzium cantor artikulate analitza kmplot
+        pkg_add ktouch kturtle minuet klettres kiten kgeography kdeedu-data kalzium cantor artikulate analitza kmplot kwordquiz rocs step kig kalgebra
+    fi
+
+    echo "Configure KDE Hex Editor? (yes/empty)"
+    read _confKdeHex;
+
+    if [ "$_confKdeHex" != "" ]
+    then
+        pkg_add okteta
+    fi
+
+    echo "Configure KDE File Utils? (yes/empty)"
+    read _confKdeFileUtils;
+
+    if [ "$_confKdeFileUtils" != "" ]
+    then
+        pkg_add kompare konqueror 
+    fi
+
+    echo "Configure KDE Cervisia (VCS - cvs and git - GUI for KDE)? (yes/empty)"
+    read _confKdeCervisia;
+
+    if [ "$_confKdeCervisia" != "" ]
+    then
+        pkg_add cervisia
     fi
 fi
 
