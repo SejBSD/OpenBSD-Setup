@@ -569,6 +569,22 @@ then
     pkg_add vlc
 fi
 
+echo "Install archive tools? (yes/empty)"
+read _archive;
+
+if [ "$_archive" != "" ]
+then
+    pkg_add zstd zip xz unzip unrar unarr unarj snappy sltar rzip p7zip lzop lz4 lzo2 lrzip deco bzip2
+fi
+
+echo "Install HexEdit (view and edit files in hexadecimal or ASCII)? (yes/empty)"
+read _hexedit;
+
+if [ "$_hexedit" != "" ]
+then
+    pkg_add hexedit
+fi
+
 
 # TODO: Finish - maybe add hexedit
 
@@ -582,14 +598,6 @@ fi
 # if [ "$_editor" != "" ]
 # then
 #     pkg_add $_editor
-# fi
-
-# echo "Install archive-related tools? (yes/empty)"
-# read _archive;
-
-# if [ "$_archive" != "" ]
-# then
-#     pkg_add zstd zip xz unzip unrar unarr unarj snappy sltar rzip quazip p7zip minizip lzop lz4 lzo2 lrzip deco bzip2 arc
 # fi
 
 # echo "Install multimedia-related tools? (yes/empty)"
