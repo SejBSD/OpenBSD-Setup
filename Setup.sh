@@ -263,7 +263,8 @@ then
             kplotting kpty kquickcharts kross krunner kservice ktexteditor ktextwidgets kunitconversion kwayland kwidgetsaddons kwindowsystem kxmlgui \
             kxmlrpcclient oxygen-icons purpose solid sonnet syndication syntax-highlighting threadweaver
 
-    pkg_add konqueror konsole korganizer kate grantleetheme ark knotes
+    pkg_add konqueror konsole korganizer kate grantleetheme ark knotes lokalize okular print-manager khelpcenter kget kcharselect kbackup kamera \
+            filelight ark
 
     echo "Configure KDE Legacy Support (legacy support for kdelibs-4.x compatibility)? (yes/empty)"
     read _confKdeLegacy;
@@ -288,7 +289,7 @@ then
     then
         pkg_add konquest kreversi kshisen ksirk ksnakeduel kspaceduel ksquares ksudoku ktuberling kubrick palapeli picmi blinken bomber bovo granatier \
                 kajongg kanagram kapman katomic kblackbox kblocks kbounce kbreakout kdiamond kfourinline kgoldrunner khangman kigo killbots kiriki \
-                kjumpingcube klettres klickety klines kmahjongg kmines knavalbattle knetwalk kolf kollision
+                kjumpingcube klettres klickety klines kmahjongg kmines knavalbattle knetwalk kolf kollision lskat
     fi
 
     echo "Configure KDE Multimedia? (yes/empty)"
@@ -297,6 +298,14 @@ then
     if [ "$_confKdeMultimedia" != "" ]
     then
         pkg_add kolourpaint kontrast kruler spectacle svgpart kmix kmag kimagemapeditor kdenlive kcolorchooser juk gwenview elisa dragon
+    fi
+
+    echo "Configure KDE Learning? (yes/empty)"
+    read _confKdeLearning;
+
+    if [ "$_confKdeLearning" != "" ]
+    then
+        pkg_add ktouch kturtle minuet klettres kiten kgeography kdeedu-data kalzium cantor artikulate analitza kmplot
     fi
 fi
 
@@ -479,6 +488,10 @@ if [ "$_libreoffice" != "" ]
 then
     pkg_add libreoffice
 fi
+
+# inkscape
+
+# vlc
 
 
 # TODO: Finish - maybe add hexedit
