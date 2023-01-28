@@ -567,7 +567,7 @@ read _vlc;
 
 if [ "$_vlc" != "" ]
 then
-    pkg_add vlc ffmpeg
+    pkg_add vlc ffmpeg flac alac_decoder celt gsm libvorbis mac opencore-amr opus speex wavpack
 fi
 
 echo "Install Archive Tools? (yes/empty)"
@@ -602,6 +602,16 @@ then
     pkg_add brlaser cups-pk-helper cups-bjnp cups cups-filters cups-pdf foomatic-db foomatic-db-engine foo2zjs gtklp gutenprint hplip htmldoc ocrmypdf pdfarranger printrun poppler psutils ptouch-driver qpdf scribus splix system-config-printer unpaper simple-scan
 fi
 
+echo "Install Security / Pentesting Tools? (yes/empty)"
+read _security;
+
+if [ "$_security" != "" ]
+then
+    pkg_add pixiewps pgpdump pdfid pdfcrack pdf-parser osv-scanner lynis knockpy john john-jumbo isic ipguard integrit hydra gnutls fwbuilder fcrackzip exploitdb dsniff dirb cracklib clamav burpsuite amap aircrack-ng aide regripper reaver rdp rarcrack wpa_supplicant tls-attacker step-cli sqlmap pwntools
+fi
+
+
+
 
 
 # TODO: Finish
@@ -614,21 +624,10 @@ fi
 
 # openbsd-backgrounds
 
+# ImageMagick
 
+# GraphicsMagick
 
+# darktable
 
-# echo "Install multimedia-related tools? (yes/empty)"
-# read _multimedia;
-
-# if [ "$_multimedia" != "" ]
-# then
-#     pkg_add lmms shotcut krita krita-gmic-plugin ffmpeg sk1 pixelorama gimp audacious opencv openbsd-backgrounds ocrad mypaint mypaint-brushes mypaint-brushes2 img2pdf ImageMagick GraphicsMagick gif2png darktable cadubi audacious-player ncspot openal freealut flac audacity alac_decoder celt gsm libvorbis mac opencore-amr opus speex wavpack
-# fi
-
-# echo "Install Security/Pentesting tools? (yes/empty)"
-# read _security;
-
-# if [ "$_security" != "" ]
-# then
-#     pkg_add pixiewps pgpdump pdfid pdfcrack pdf-parser osv-scanner lynis knockpy john john-jumbo isic ipguard integrit hydra gnutls fwbuilder fcrackzip exploitdb dsniff dirb cracklib clamav burpsuite amap aircrack-ng aide regripper reaver rdp rarcrack wpa_supplicant tls-attacker step-cli sqlmap pwntools
-# fi
+# opencv, openal, freealut
