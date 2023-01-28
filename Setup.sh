@@ -158,7 +158,7 @@ then
 
     if [ "$_confGnomeMultimedia" != "" ]
     then
-        pkg_add cheese eog eog-plugins grilo grilo-plugins gnome-music gnome-photos gnome-video-effects
+        pkg_add cheese eog eog-plugins grilo grilo-plugins gnome-music gnome-photos gnome-video-effects rhythmbox
     fi
 
     echo "Configure GNOME Online Utils? (yes/empty)"
@@ -256,16 +256,17 @@ then
 
     sh ./Internal_InstallMultiple.sh kf5
 
-    pkg_add bluez-qt breeze-icons extra-cmake-modules frameworkintegration kactivities-stats kapidox karchive kauth kbookmarks kcalendarcore \
+    pkg_add bluez-qt breeze breeze-icons extra-cmake-modules frameworkintegration kactivities-stats kapidox karchive kauth kbookmarks kcalendarcore \
             kcmutils kcodecs kcompletion kconfig kconfigwidgets kcontacts kcoreaddons kcrash kdav kdbusaddons kdeclarative kded kdesignerplugin \
             kdesu kdewebkit kdnssd kdoctools kemoticons kfilemetadata kglobalaccel kguiaddons kholidays khtml ki18n kiconthemes kidletime \
             kimageformats kinit kio kitemmodels kitemviews kjobwidgets kmediaplayer knewstuff knotifications knotifyconfig kpackage kparts kpeople \
             kplotting kpty kquickcharts kross krunner kservice ktexteditor ktextwidgets kunitconversion kwayland kwidgetsaddons kwindowsystem kxmlgui \
-            kxmlrpcclient oxygen-icons purpose solid sonnet syndication syntax-highlighting threadweaver
+            kxmlrpcclient oxygen oxygen-icons purpose solid sonnet syndication syntax-highlighting threadweaver
 
     pkg_add konqueror konsole korganizer kate grantleetheme ark knotes lokalize okular print-manager khelpcenter kget kcharselect kbackup kamera \
             filelight ark kwalletmanager signon-kwallet-extension kio-gdrive kio-extras kfind kdf kcalc eventviews kalarm krdc krfb ksystemlog \
-            kteatime ktimer markdownpart sweeper kldap kcachegrind ksanecore kopeninghours kmousetool kleopatra kgpg kfloppy
+            kteatime ktimer markdownpart sweeper kldap kcachegrind ksanecore kopeninghours kmousetool kleopatra kgpg kfloppy kdeconnect-kde \
+            kdecoration
 
     echo "Configure KDE Legacy Support (legacy support for kdelibs-4.x compatibility)? (yes/empty)"
     read _confKdeLegacy;
@@ -497,12 +498,12 @@ then
     pkg_add awscli cloud-agent google-cloud-sdk packer
 fi
 
-echo "Install FUSE/FS (curlftpfs, dosfstools, e2fsprogs, exfat-fuse, mtools, ntfs-3g, squashfs-tools, sshfs-fuse, fuse-zip, encfs)? (yes/empty)"
+echo "Install FUSE/FS (curlftpfs, dosfstools, e2fsprogs, exfat-fuse, mtools, ntfs-3g, squashfs-tools, sshfs-fuse, fuse-zip, encfs, ntfs_3g)? (yes/empty)"
 read _fuse;
 
 if [ "$_fuse" != "" ]
 then
-    pkg_add curlftpfs dosfstools e2fsprogs exfat-fuse mtools ntfs-3g squashfs-tools sshfs-fuse fuse-zip encfs
+    pkg_add curlftpfs dosfstools e2fsprogs exfat-fuse mtools ntfs-3g squashfs-tools sshfs-fuse fuse-zip encfs ntfs_3g
 fi
 
 echo "Install Converters (bchunk)? (yes/empty)"
@@ -521,7 +522,7 @@ then
     pkg_add rizin binwalk ghidra
 fi
 
-echo "Install Containers? (yes/empty)"
+echo "Install Containers (docker-cli, kubectl, oc, serf, terraform, jailkit)? (yes/empty)"
 read _containers;
 
 if [ "$_containers" != "" ]
@@ -566,7 +567,7 @@ read _vlc;
 
 if [ "$_vlc" != "" ]
 then
-    pkg_add vlc
+    pkg_add vlc ffmpeg
 fi
 
 echo "Install archive tools? (yes/empty)"
@@ -586,26 +587,27 @@ then
 fi
 
 
-# TODO: Finish - maybe add hexedit
+
+
+# TODO: Finish
+
+# lmms
+
+# shotcut
+
+# krita krita-gmic-plugin / gimp
+
+# openbsd-backgrounds
 
 
 
-
-
-# echo "Choose editor: zile, texworks, teaqt, qscintilla, poke, neovim-qt, libreoffice, leafpad, hexedit, hexcurse, focuswriter, featherpad, emacs, abiword - empty for none"
-# read _editor;
-
-# if [ "$_editor" != "" ]
-# then
-#     pkg_add $_editor
-# fi
 
 # echo "Install multimedia-related tools? (yes/empty)"
 # read _multimedia;
 
 # if [ "$_multimedia" != "" ]
 # then
-#     pkg_add lmms shotcut vlc krita krita-gmic-plugin inkscape ffmpeg sk1 pixelorama gimp audacious opencv openbsd-backgrounds ocrad mypaint mypaint-brushes mypaint-brushes2 img2pdf ImageMagick GraphicsMagick gif2png flameshot darktable cadubi audacious-player ncspot lmms openal rhythmbox freealut flac audacity alac_decoder celt gsm libvorbis mac opencore-amr opus speex wavpack
+#     pkg_add lmms shotcut krita krita-gmic-plugin ffmpeg sk1 pixelorama gimp audacious opencv openbsd-backgrounds ocrad mypaint mypaint-brushes mypaint-brushes2 img2pdf ImageMagick GraphicsMagick gif2png darktable cadubi audacious-player ncspot openal freealut flac audacity alac_decoder celt gsm libvorbis mac opencore-amr opus speex wavpack
 # fi
 
 # echo "Install printer tools? (yes/empty)"
