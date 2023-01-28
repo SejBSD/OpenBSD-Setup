@@ -448,7 +448,7 @@ else
     pkg_add chromium
 fi
 
-echo "Install and configure neofetch (system information tool written in bash)? (yes/empty)"
+echo "Install and Configure Neofetch (system information tool written in bash)? (yes/empty)"
 read _neofetch;
 
 if [ "$_neofetch" != "" ]
@@ -466,7 +466,7 @@ then
     fi
 fi
 
-echo "Install flameshot (powerful yet simple to use screenshot software)? (yes/empty)"
+echo "Install Flameshot (powerful yet simple to use screenshot software)? (yes/empty)"
 read _flameshot;
 
 if [ "$_flameshot" != "" ]
@@ -474,7 +474,7 @@ then
     pkg_add flameshot
 fi
 
-echo "Install VM tools (Virtual Machine Manager (virt-manager), QEMU, remotebox, virt-viewer, freerdp)? (yes/empty)"
+echo "Install VM Tools (Virtual Machine Manager (virt-manager), QEMU, remotebox, virt-viewer, freerdp)? (yes/empty)"
 read _virt;
 
 if [ "$_virt" != "" ]
@@ -530,7 +530,7 @@ then
     pkg_add docker-cli kubectl oc serf terraform jailkit
 fi
 
-echo "Install PCB/Modeling-related tools (kicad, lepton-eda, librecad, oce, openscad, pcb2gcode, qcad)? (yes/empty)"
+echo "Install PCB/Modeling-related Tools (kicad, lepton-eda, librecad, oce, openscad, pcb2gcode, qcad)? (yes/empty)"
 read _pcb;
 
 if [ "$_pcb" != "" ]
@@ -538,7 +538,7 @@ then
     pkg_add kicad lepton-eda librecad oce openscad pcb2gcode qcad
 fi
 
-echo "Install productivity tools (kicad, projectlibre, impressive, gnucash, gnucash-docs)? (yes/empty)"
+echo "Install Productivity Tools (kicad, projectlibre, impressive, gnucash, gnucash-docs)? (yes/empty)"
 read _pcb;
 
 if [ "$_pcb" != "" ]
@@ -570,7 +570,7 @@ then
     pkg_add vlc ffmpeg
 fi
 
-echo "Install archive tools? (yes/empty)"
+echo "Install Archive Tools? (yes/empty)"
 read _archive;
 
 if [ "$_archive" != "" ]
