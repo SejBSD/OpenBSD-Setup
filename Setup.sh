@@ -94,7 +94,7 @@ read _confGnome;
 if [ "$_confGnome" != "" ]
 then
     pkg_add gnome gnome-tour gnome-initial-setup gnome-keyring gnome-menus gnome-screenshot gnome-session gnome-settings-daemon gnome-tweaks \
-            gnome-usage gnome-control-center endeavor gdm nautilus gnome-power-manager sushi gnome-system-monitor gnome-terminal gnome-console \
+            gnome-usage gnome-control-center endeavour gdm nautilus gnome-power-manager sushi gnome-system-monitor gnome-terminal gnome-console \
             baobab
 
     echo "# Added by OpenBSD-Setup script" >> _etcLoginConfPath
