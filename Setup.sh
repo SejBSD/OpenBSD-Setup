@@ -52,7 +52,13 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-pkg_add -u
+echo "Update packages? (yes/empty)"
+read _update;
+
+if [ "$_update" -ne "" ]
+then
+    pkg_add -u
+fi
 
 echo ""
 echo "################################################################"
