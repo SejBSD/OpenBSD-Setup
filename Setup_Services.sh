@@ -21,7 +21,7 @@ echo ""
 echo "Configure phpMyAdmin? (yes/empty)"
 read _phpMyAdmin;
 
-if [ "$_phpMyAdmin" != "" ]
+if [ "$_phpMyAdmin" -ne "" ]
 then
   pkg_add phpmyadmin
 fi
@@ -37,7 +37,7 @@ echo ""
 echo "Configure NGINX? (yes/empty)"
 read _nginx;
 
-if [ "$_nginx" != "" ]
+if [ "$_nginx" -ne "" ]
 then
   pkg_add nginx
 fi
@@ -53,7 +53,7 @@ echo ""
 echo "Configure Apache HTTP Server? (yes/empty)"
 read _apacheHttp;
 
-if [ "$_apacheHttp" != "" ]
+if [ "$_apacheHttp" -ne "" ]
 then
   pkg_add apache-httpd
 fi
