@@ -586,6 +586,14 @@ then
     pkg_add hexedit
 fi
 
+echo "Install Vulkan/OpenGL Tools? (yes/empty)"
+read _vulkan;
+
+if [ "$_vulkan" != "" ]
+then
+    pkg_add vulkan-tools vulkan-loader vulkan-headers glfw glew gle freeglut
+fi
+
 
 
 
@@ -616,14 +624,6 @@ fi
 # if [ "$_printer" != "" ]
 # then
 #     pkg_add brlaser cups-pk-helper cups-bjnp cups cups-filters cups-pdf foomatic-db foomatic-db-engine foo2zjs gtklp gutenprint hplip htmldoc ocrmypdf pdfarranger printrun poppler psutils ptouch-driver qpdf scribus splix system-config-printer unpaper simple-scan
-# fi
-
-# echo "Install Vulkan/OpenGL tools? (yes/empty)"
-# read _vulkan;
-
-# if [ "$_vulkan" != "" ]
-# then
-#     pkg_add vulkan-tools vulkan-loader vulkan-headers glfw glew gle freeglut
 # fi
 
 # echo "Install Security/Pentesting tools? (yes/empty)"
