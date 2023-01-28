@@ -610,24 +610,66 @@ then
     pkg_add pixiewps pgpdump pdfid pdfcrack pdf-parser osv-scanner lynis knockpy john john-jumbo isic ipguard integrit hydra gnutls fwbuilder fcrackzip exploitdb dsniff dirb cracklib clamav burpsuite amap aircrack-ng aide regripper reaver rdp rarcrack wpa_supplicant tls-attacker step-cli sqlmap pwntools
 fi
 
+echo "Install LMMS (music studio with tracking, sampling and MIDI)? (yes/empty)"
+read _lmms;
 
+if [ "$_lmms" != "" ]
+then
+    pkg_add lmms
+fi
 
+echo "Install Shotcut (video editor)? (yes/empty)"
+read _shotcut;
 
+if [ "$_shotcut" != "" ]
+then
+    pkg_add shotcut
+fi
 
-# TODO: Finish
+echo "Install GIMP (GNU Image Manipulation Program), Krita (advanced drawing and image manipulation)? (yes/empty)"
+read _image;
 
-# lmms
+if [ "$_image" != "" ]
+then
+    pkg_add gimp krita krita-gmic-plugin
+fi
 
-# shotcut
+echo "Install OpenBSD Backgrounds? (yes/empty)"
+read _openbsdBack;
 
-# krita krita-gmic-plugin / gimp
+if [ "$_openbsdBack" != "" ]
+then
+    pkg_add openbsd-backgrounds
+fi
 
-# openbsd-backgrounds
+echo "Install ImageMagick (image processing tools)? (yes/empty)"
+read _imageMagick;
 
-# ImageMagick
+if [ "$_imageMagick" != "" ]
+then
+    pkg_add ImageMagick
+fi
 
-# GraphicsMagick
+echo "Install GraphicsMagick (image processing tools with stable ABI)? (yes/empty)"
+read _graphicsMagick;
 
-# darktable
+if [ "$_graphicsMagick" != "" ]
+then
+    pkg_add GraphicsMagick
+fi
 
-# opencv, openal, freealut
+echo "Install Darktable (virtual lighttable and darkroom for photographers)? (yes/empty)"
+read _darktable;
+
+if [ "$_darktable" != "" ]
+then
+    pkg_add darktable
+fi
+
+echo "Install OpenCV, OpenAL, Freealut (OpenAL Utility Toolkit)? (yes/empty)"
+read _open;
+
+if [ "$_open" != "" ]
+then
+    pkg_add opencv openal freealut
+fi
