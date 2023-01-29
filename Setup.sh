@@ -401,7 +401,7 @@ read _confOpenBox;
 
 if [ "$_confOpenBox" != "" ]
 then
-    pkg_add openbox
+    pkg_add openbox menumaker
 fi
 
 echo "Configure i3? (yes/empty)"
@@ -678,4 +678,20 @@ read _open;
 if [ "$_open" != "" ]
 then
     pkg_add opencv openal freealut
+fi
+
+echo "Install Pidgin (multi-protocol instant messaging client)? (yes/empty)"
+read _pidgin;
+
+if [ "$_pidgin" != "" ]
+then
+    pkg_add pidgin
+fi
+
+echo "Install MineTest (infinite-world block sandbox game)? (yes/empty)"
+read _minetest;
+
+if [ "$_minetest" != "" ]
+then
+    pkg_add minetest
 fi
